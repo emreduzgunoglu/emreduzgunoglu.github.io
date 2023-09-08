@@ -7,7 +7,7 @@
 .header {
     min-height: 100vh;
     width: 100%;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url(bookshelfBG.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url(bookShelfBG.jpg);
     background-position: center;
     background-size: cover;
     position: relative;
@@ -133,6 +133,11 @@ nav .fa {
     display: none;
 }
 
+nav .fa-solid {
+    display: none;
+    /* style="color: #ffffff;" */
+}
+
 @media(max-width:700px) {
     .text-box h1 {
         font-size: 20px;
@@ -157,13 +162,18 @@ nav .fa {
     nav .fa {
         display: block;
         color: #fff;
-        margin: 10px;
-        font-size: 22px;
+        margin: 20px;
+        font-size: 20px;
         cursor: pointer;
     }
 
     .nav-links ul {
         padding: 10px;
+    }
+
+    nav .fa-solid {
+        display: block;
+        color: #fff;
     }
 }
 
@@ -222,6 +232,72 @@ h3 {
     }
 }
 
+/* -------------- ÖZ GECMİŞ ------------- */
+
+.resume{
+    padding: 0;
+    box-sizing: border-box;
+    background: linear-gradient(to left, #ffffff 38%, #dadada 100%);
+    background-position: center;
+    background-size: cover; 
+}
+
+.wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 50vh;
+}
+
+.resume img{
+    margin-left: 15%;
+    max-width: 400px;
+    float: left;
+    /* border: 3px solid; */
+    border-radius: 20px;
+    margin-right: 100px;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.text-resume h2{
+    text-align: left;
+    font-size: 32px;
+    margin-bottom: 50px;
+    color: #000;
+}
+
+.text-resume p{
+    color: #000;
+    font-size: 23px;
+    text-align: left;
+    margin-right: 15%;
+}
+
+@media(max-width: 700px) {
+    .wrapper{
+        flex-direction: column;
+    }
+    .resume img{
+        margin-bottom: 50px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .text-resume h2{
+        text-align: center;
+    }
+
+    .text-resume p{
+        margin-right: 0;
+        margin-bottom: 5%;
+        text-align: center;
+    }
+    .resume{
+        background: linear-gradient(to top, #ffffff 38%, #dadada 100%);
+    }
+}
+
 /* ------------- Google Maps Location ------------ */
 
 .location {
@@ -250,14 +326,18 @@ iframe {
 
 @media(max-width: 700px) {
     iframe {
-        height: auto;
+        height: 350px;
+        width: 100%;
     }
 }
 
 /* ----------- SİZİ ARAYALIM --------- */
 
 .contact {
-    margin: 100px auto;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 100px;
+    margin-top: 5%;
     width: 80%;
     background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(banner.jpg);
     background-position: center;
@@ -280,6 +360,11 @@ iframe {
 @media(max-width: 700px) {
     .contact h1 {
         font-size: 24px;
+    }
+
+    .contact {
+        margin-bottom: 50px;
+        margin-top: 50px;
     }
 }
 
@@ -316,17 +401,18 @@ iframe {
 
 .socialMediaAccounts h4 {
     color: #777;
-    margin-top: 100px;
+    margin-top: 50px;
 }
 
 .alignLeft {
-	float: left;
+    float: left;
     color: #fff;
     margin: 0px;
     list-style: none;
 }
+
 .alignRight {
-	float: right;
+    float: right;
     color: #fff;
     margin: 0px;
     list-style: none;
@@ -340,7 +426,7 @@ iframe {
 }
 
 @media(max-width: 700px) {
-    .about div{
+    .about div {
         height: 220px;
     }
 }
@@ -351,7 +437,7 @@ iframe {
     font-size: 20px;
 }
 
- #aboutMenu ul li {
+#aboutMenu ul li {
     list-style: none;
     position: relative;
 }
@@ -369,6 +455,56 @@ iframe {
 #aboutMenu ul li:hover::after {
     width: 100%;
 }
+
+.icons {
+    color: #fff;
+    size: 500px;
+    font-size: 30px;
+}
+
+.socialMediaAccounts p {
+    font-weight: 600px;
+    color: #fff;
+}
+
+@media(max-width: 700px) {
+    .socialMediaAccounts p {
+        margin-top: 80px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
