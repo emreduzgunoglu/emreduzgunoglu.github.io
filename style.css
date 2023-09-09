@@ -407,13 +407,14 @@ iframe {
     justify-content: center;
     align-items: center;
     min-height: 400px;
+    margin-left: 5%;
 }
 
 .about div {
     height: 300px;
     width: 300px;
     color: #fff;
-    margin-right: 40px;
+    margin-right: 30px;
     text-align: left;
 }
 
