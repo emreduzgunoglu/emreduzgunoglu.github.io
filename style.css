@@ -234,22 +234,22 @@ h3 {
 
 /* -------------- ÖZ GECMİŞ ------------- */
 
-.resume{
+.resume {
     padding: 0;
     box-sizing: border-box;
     background: linear-gradient(to left, #ffffff 38%, #dadada 100%);
     background-position: center;
-    background-size: cover; 
+    background-size: cover;
 }
 
-.wrapper{
+.wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 50vh;
 }
 
-.resume img{
+.resume img {
     margin-left: 10%;
     max-width: 600px;
     float: left;
@@ -260,14 +260,14 @@ h3 {
     margin-bottom: 5%;
 }
 
-.text-resume h2{
+.text-resume h2 {
     text-align: left;
     font-size: 32px;
     margin-bottom: 50px;
     color: #000;
 }
 
-.text-resume p{
+.text-resume p {
     color: #000;
     font-size: 23px;
     text-align: left;
@@ -275,27 +275,33 @@ h3 {
 }
 
 @media(max-width: 700px) {
-    .wrapper{
+    .wrapper {
         flex-direction: column;
     }
-    .resume img{
+
+    .resume img {
         margin-bottom: 50px;
-        margin-left: auto;
-        margin-right: auto;
-        max-width: 400px;
-    }
-
-    .text-resume h2{
-        text-align: center;
-    }
-
-    .text-resume p{
-        margin-right: 5%;
         margin-left: 5%;
-        margin-bottom: 5%;
-        text-align: center;
+        margin-right: 5%;
+        max-width: 300px;
     }
-    .resume{
+
+    .text-resume h2 {
+        text-align: center;
+        margin-left: 5%;
+        margin-right: 5%;
+        font-size: 23px;
+    }
+
+    .text-resume p {
+        margin-right: 10%;
+        margin-left: 10%;
+        margin-bottom: 5%;
+        font-size: 19px;
+        text-align: left;
+    }
+
+    .resume {
         background: linear-gradient(to top, #ffffff 38%, #dadada 100%);
     }
 }
@@ -330,6 +336,16 @@ iframe {
     iframe {
         height: 350px;
         width: 100%;
+    }
+
+    .location h1 {
+        font-size: 23px;
+    }
+
+    .location p {
+        font-size: 19px;
+        margin-right: 10%;
+        margin-left: 10%;
     }
 }
 
@@ -431,6 +447,11 @@ iframe {
     .about div {
         height: 220px;
     }
+
+    .socialMediaAccounts h4 {
+        margin-left: 5%;
+        margin-right: 5%;
+    }
 }
 
 #aboutMenu ul li a {
@@ -474,48 +495,3 @@ iframe {
         margin-top: 80px;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
