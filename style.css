@@ -385,6 +385,11 @@ iframe {
         margin-bottom: 50px;
         margin-top: 50px;
     }
+    
+    .contact p {
+        margin-left: 5%;
+        margin-right: 5%;
+    }
 }
 
 /* ------------- HAKKIMIZDA ------- */
