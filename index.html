@@ -18,16 +18,15 @@
         <nav>
             <a href="index.html"><img src="logo.png"></a>
             <div class="nav-links" id="navLinks">
-                <i class="fa fa-compress" onclick="hideMenu()"></i>
-                <ul>
+                <i class="fa fa-compress" id="closeIMG"></i>
+                <ul id="list">
                     <li><a href="">FAALİYET ALANLARIMIZ</a></li>
                     <li><a href="">HAKKIMIZDA</a></li>
-                    <!-- <li><a href="">KARİYER</a></li> -->
                     <li><a href="">İLETİŞİM</a></li>
                     <li><a href="">LOKASYON</a></li>
                 </ul>
             </div>
-            <i class="fa-solid fa-bars" onclick="showMenu()"></i>
+            <i class="fa-solid fa-bars" id="3bars"></i>
         </nav>
         <div class="text-box">
             <h1>Meray Avukatlık Bürosu</h1>
@@ -181,22 +180,8 @@
 
     </section>
 
-    <!-- ------------ JS ---------- -->
-
-    <script>
-        var navLinks = document.getElementById("navLinks");
-
-        function showMenu() {
-            navLinks.style.right = "0";
-        }
-
-        function hideMenu() {
-            navLinks.style.right = "-200px";
-        }
-
-    </script>
-
-
+    <!-------------- JS ------------>
+    <script src="index.js" type="module"></script>
 </body>
 
 </html>
