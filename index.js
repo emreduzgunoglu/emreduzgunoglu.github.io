@@ -1,5 +1,3 @@
-
-
 var navLinks = document.getElementById("navLinks");
 
 let closeIMGIcon = document.getElementById("closeIMG");
