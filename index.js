@@ -40,7 +40,7 @@ function goToCall() {
     }
 }
 
-// Course-Col
+/* // Course-Col
 const boxes = document.querySelectorAll('.course-col');
 window.addEventListener('scroll', checkBoxes);
 checkBoxes();
@@ -90,7 +90,7 @@ function checkCourseP(){
     else {
         courseP.classList.remove('show')
     }
-}
+} */
 
 
 
