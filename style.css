@@ -272,7 +272,9 @@ nav .fa-solid {
     margin-bottom: 1%;
     margin-left: 5%;
     margin-right: 5%;
-    font-weight: 300;
+
+    
+    line-height: 1.33;
 }
 
 .statement-list {
@@ -281,6 +283,9 @@ nav .fa-solid {
     text-align: left;
     list-style-position: inside;
     margin-left: 5%;
+
+    
+    line-height: 1.33;
 }
 
 .column {
