@@ -24,19 +24,19 @@ locationButton.addEventListener("click", goToLocation);
 
 function goToLocation() {
     if (screen.width > 700) {
-        document.documentElement.scrollTop = 2800;
+        document.documentElement.scrollTop = 4500;
     }
     else {
-        document.documentElement.scrollTop = 3300;
+        document.documentElement.scrollTop = 6500;
     }
 }
 
 function goToCall() {
     if (screen.width > 700) {
-        document.documentElement.scrollTop = 2100;
+        document.documentElement.scrollTop = 3800;
     }
     else {
-        document.documentElement.scrollTop = 2800;
+        document.documentElement.scrollTop = 6000;
     }
 }
 
