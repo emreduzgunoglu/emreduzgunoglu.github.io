@@ -140,7 +140,8 @@ nav img {
     padding: 10px;
 }
 
-button {
+#callBtn,
+#locationBtn {
     width: 200px;
     padding: 15px 0;
     text-align: center;
@@ -167,11 +168,19 @@ span {
     transition: 0.5s;
 }
 
-button:hover span {
+#callBtn:hover span {
     width: 100%;
 }
 
-button:hover {
+#callBtn:hover {
+    border: none;
+}
+
+#locationBtn:hover span {
+    width: 100%;
+}
+
+#locationBtn:hover {
     border: none;
 }
 
@@ -243,6 +252,26 @@ nav .fa-solid {
 
 /* --------- course ------- */
 
+.collapsible {
+    background-color: #f8f8f8;
+    color: black;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    
+    font-size: 32px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.active,
+.collapsible:hover {
+    background-color: #f5f5ef;
+}
+
 .course {
     width: 80%;
     margin: auto;
@@ -281,7 +310,6 @@ nav .fa-solid {
     text-align: left;
     list-style-position: inside;
     margin-left: 5%;
-
     line-height: 1.33;
 }
 
@@ -292,15 +320,18 @@ nav .fa-solid {
 
 .course-row {
     background: #f5f5ef;
-    border-radius: 20px;
-    margin-bottom: 5%;
-    padding: 20px 12px;
+    /* border-radius: 20px; */
+    /* margin-bottom: 1%; */
+    /* padding: 20px 12px; */
     box-sizing: border-box;
-    transition: 0.5s;
 
     background-size: cover;
     background-position: center;
     /* background-image: linear-gradient(rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.8)), url(justice.jpeg); */
+
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-in-out;
 }
 
 /* .course.show{
