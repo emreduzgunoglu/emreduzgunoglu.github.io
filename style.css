@@ -456,7 +456,8 @@ nav .fa-solid {
     font-size: 32px;
     margin-bottom: 50px;
     color: #000;
-    animation: slideLeft 0.8s ease-out 0.5s 1 backwards;
+    /* Broken */
+    /* animation: slideLeft2 0.8s ease-out 0.5s 1 backwards; */
 }
 
 .text-resume p {
@@ -585,7 +586,7 @@ iframe {
     margin-right: auto;
     margin-left: auto;
     margin-bottom: 100px;
-    margin-top: 5%;
+    margin-top: 100px;
     width: 80%;
     background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(banner.jpg);
     background-position: center;

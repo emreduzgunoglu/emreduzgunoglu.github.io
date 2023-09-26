@@ -22,39 +22,39 @@ let locationButton = document.getElementById("locationBtn");
 callButton.addEventListener("click", goToCall);
 locationButton.addEventListener("click", goToLocation);
 
-function goToLocation() {
-    if (screen.width > 700) {
-        document.documentElement.scrollTop = 4500;
-    }
-    else {
-        document.documentElement.scrollTop = 6500;
-    }
+function goToCall() {
+    const element = document.getElementById("contactGoTo");
+    element.scrollIntoView();
 }
 
-function goToCall() {
+function goToLocation(){
+    const element = document.getElementById("locationGoTo");
+    element.scrollIntoView();
+}
+
+/* function goToCall() {
     if (screen.width > 700) {
         document.documentElement.scrollTop = 3800;
     }
     else {
         document.documentElement.scrollTop = 6000;
     }
-}
+}  */
 
-// Collapsible
-
+// Collapsible (Important!)
 var coll = document.getElementsByClassName("collapsible");
 var i;
 
 for (i = 0; i < coll.length; i++) {
-  coll[i].addEventListener("click", function() {
-    this.classList.toggle("active");
-    var content = this.nextElementSibling;
-    if (content.style.maxHeight){
-      content.style.maxHeight = null;
-    } else {
-      content.style.maxHeight = content.scrollHeight + "px";
-    } 
-  });
+    coll[i].addEventListener("click", function () {
+        this.classList.toggle("active");
+        var content = this.nextElementSibling;
+        if (content.style.maxHeight) {
+            content.style.maxHeight = null;
+        } else {
+            content.style.maxHeight = content.scrollHeight + "px";
+        }
+    });
 }
 
 /* // Course-Col
