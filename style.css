@@ -253,7 +253,7 @@ nav .fa-solid {
 /* --------- course ------- */
 
 .collapsible {
-    background-color: #f8f8f8;
+    background-color: #e5e3e3;
     color: black;
     cursor: pointer;
     padding: 18px;
@@ -261,10 +261,38 @@ nav .fa-solid {
     border: none;
     text-align: left;
     outline: none;
-    
+
     font-size: 32px;
     font-weight: 600;
     text-align: center;
+
+    border-top: 10px solid #ffffff;
+    transition: 0.2s;
+}
+
+.collapsible::after {
+    content: '';
+    position: absolute;
+    padding-right: 210px;
+    right: 0px;
+}
+
+.collapsible-label{
+    font-size: 32px;
+    font-weight: 600;
+    position: absolute;
+    right: 11%;
+    margin-top: 30px;
+}
+
+@media(max-width:700px) {
+    .collapsible::after {
+        content: '';
+        padding-right: 0px;
+    }
+    .collapsible-label{
+        display: none;
+    }
 }
 
 .active,

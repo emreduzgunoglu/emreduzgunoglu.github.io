@@ -27,7 +27,7 @@ function goToCall() {
     element.scrollIntoView();
 }
 
-function goToLocation(){
+function goToLocation() {
     const element = document.getElementById("locationGoTo");
     element.scrollIntoView();
 }
@@ -42,6 +42,9 @@ function goToLocation(){
 }  */
 
 // Collapsible (Important!)
+
+let collapsibleLabel = document.getElementsByClassName("collapsible-label")
+
 var coll = document.getElementsByClassName("collapsible");
 var i;
 
@@ -51,11 +54,33 @@ for (i = 0; i < coll.length; i++) {
         var content = this.nextElementSibling;
         if (content.style.maxHeight) {
             content.style.maxHeight = null;
+            let x = collapsibleLabel[i];
+
+            if (x.innerHTML == "+") {
+                x.innerHTML = "-";
+            }
+            else {
+                x.innerHTML = "+"
+            }
         } else {
             content.style.maxHeight = content.scrollHeight + "px";
         }
     });
 }
+
+/* if (label1.innerHTML == "+") {
+    label1.innerHTML = "-";
+}
+else label1.innerHTML = "+"; */
+
+
+
+
+
+
+
+
+
 
 /* // Course-Col
 const boxes = document.querySelectorAll('.course-col');
