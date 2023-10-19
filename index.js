@@ -59,20 +59,6 @@ for (i = 0; i < coll.length; i++) {
     });
 }
 
-/* if (label1.innerHTML == "+") {
-    label1.innerHTML = "-";
-}
-else label1.innerHTML = "+"; */
-
-
-
-
-
-
-
-
-
-
 /* // Course-Col
 const boxes = document.querySelectorAll('.course-col');
 window.addEventListener('scroll', checkBoxes);
