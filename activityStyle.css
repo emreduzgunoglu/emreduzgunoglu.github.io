@@ -20,9 +20,9 @@ html {
 
 .header {
     overflow-x: hidden;
-    min-height: 80vh;
+    min-height: 100vh;
     width: 100%;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url(bookshelfBG.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url(backgroundIMG.jpg);
     background-position: center;
     background-size: cover;
     position: relative;
@@ -93,4 +93,138 @@ nav img {
     font-weight: 300;
     line-height: 22px;
     padding: 10px;
+}
+
+/* --------- course ------- */
+
+.collapsible {
+    background-color: #e5e3e3;
+    color: black;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+
+    font-size: 32px;
+    font-weight: 600;
+    text-align: center;
+
+    border-top: 10px solid #ffffff;
+    transition: 0.2s;
+}
+
+.collapsible::after {
+    content: '';
+    position: absolute;
+    padding-right: 210px;
+    right: 0px;
+}
+
+.collapsible-label{
+    font-size: 32px;
+    font-weight: 600;
+    position: absolute;
+    right: 11%;
+    margin-top: 30px;
+}
+
+@media(max-width:700px) {
+    .collapsible::after {
+        content: '';
+        padding-right: 0px;
+    }
+    .collapsible-label{
+        display: none;
+    }
+}
+
+.active,
+.collapsible:hover {
+    background-color: #f5f5ef;
+}
+
+.course {
+    width: 80%;
+    margin: auto;
+    padding-top: 50px;
+}
+
+#title {
+    font-size: 36px;
+    font-weight: 600;
+    text-align: center;
+    color: #000;
+    padding-bottom: 50px;
+}
+
+#subtitle {
+    margin-bottom: 2%;
+    font-size: 36px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.course p {
+    font-size: 19px;
+    font-weight: 300;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    margin-left: 5%;
+    margin-right: 5%;
+
+    line-height: 1.33;
+}
+
+.statement-list {
+    font-size: 19px;
+    font-weight: 300;
+    text-align: left;
+    list-style-position: inside;
+    margin-left: 5%;
+    line-height: 1.33;
+}
+
+.column {
+    display: block;
+    justify-content: center;
+}
+
+.course-row {
+    background: #f5f5ef;
+    /* border-radius: 20px; */
+    /* margin-bottom: 1%; */
+    /* padding: 20px 12px; */
+    box-sizing: border-box;
+
+    background-size: cover;
+    background-position: center;
+    /* background-image: linear-gradient(rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.8)), url(justice.jpeg); */
+
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-in-out;
+}
+
+/* .course.show{
+    animation: slideDown 0.6s ease-out 0.8s 1 backwards;
+} */
+
+/* .course-row.show{
+    animation: slideDown 0.8s ease-out 0.3s 1 backwards;
+} */
+
+/* #courseP.show{
+    animation: slideDown 0.6s ease-out 0.4s 1 backwards;
+} */
+
+@media(max-width:700px) {
+    .course p {
+        font-size: 16px;
+    }
+
+    .statement-list {
+        font-size: 16px;
+    }
 }
