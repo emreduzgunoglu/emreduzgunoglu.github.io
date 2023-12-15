@@ -346,6 +346,24 @@ nav .fa-solid {
     justify-content: center;
 }
 
+.embedVideo {
+    padding-top: 50px;
+    width: 100%;
+    height: 550px;
+    background-color: #f5f5ef;
+    text-align: center;
+
+    margin-bottom: 50px;
+}
+
+@media(max-width: 700px) {
+    .embedVideo {
+        height: 400px;
+        padding-top: 0px;
+        background-color: #fff;
+    }
+}
+
 .course-row {
     background: #f5f5ef;
     /* border-radius: 20px; */
