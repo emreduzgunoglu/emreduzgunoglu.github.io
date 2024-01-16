@@ -17,6 +17,7 @@ button.addEventListener("click", calculate);
 
 let correctArray = [1, 2, 3, 4];
 let resultArray = [];
+display3();
 
 function display() {
     showArrayP.innerText = "- - - -"
