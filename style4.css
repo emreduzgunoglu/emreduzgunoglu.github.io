@@ -10,7 +10,7 @@ html {
 
 .main {
     height: 100vh;
-
+    overflow-x: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -160,12 +160,12 @@ body .row:nth-child(2) .course-col:nth-child(3) {
     }
 
     #baslik {
-        font-size: 40px;
+        font-size: 30px;
     }
 
     #timer {
         padding-top: 10px;
-        font-size: 28px;
+        font-size: 20px;
     }
 
 
