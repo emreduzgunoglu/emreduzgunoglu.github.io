@@ -4,233 +4,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>I Love U</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="style5.css">
 
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
+    <!-- tomtom -->
+    <link rel="stylesheet" href="https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.15.0/maps/maps.css" type="text/css">
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    <script type="text/javascript"
+        src="https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.15.0/maps/maps-web.min.js"></script>
 
-        body {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            width: 100%;
-            background: #000000;
-            font-family: 'Raleway', sans-serif;
-            font-weight: bold;
-
-            background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9)), url('photos/10.jpeg');
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-position: center;
-        }
-
-        #message {
-            font-size: 38px;
-            margin-bottom: 15px;
-            text-align: center;
-            color: #fff;
-            font-family: 'Ralevay';
-            font-style: italic;
-        }
-
-        a {
-            position: relative;
-            display: inline-block;
-            padding: 25px 30px;
-            margin: 40px 0;
-            color: #03e9f4;
-            text-decoration: none;
-            text-transform: uppercase;
-            transition: 0.5s;
-            letter-spacing: 4px;
-            overflow: hidden;
-            left: 0;
-            top: 0;
-        }
-
-        a:hover {
-            background: #03e9f4;
-            color: #050801;
-            box-shadow: 0 0 5px #03e9f4,
-                0 0 25px #03e9f4,
-                0 0 50px #03e9f4,
-                0 0 200px #03e9f4;
-            -webkit-box-reflect: below 1px linear-gradient(transparent, #0005);
-        }
-
-        a:nth-child(2) {
-            filter: hue-rotate(110deg);
-        }
-
-        a span {
-            position: absolute;
-            display: block;
-        }
-
-        a span:nth-child(1) {
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, #03e9f4);
-            animation: animate1 1s linear infinite;
-        }
-
-        @keyframes animate1 {
-            0% {
-                left: -100%;
-            }
-
-            50%,
-            100% {
-                left: 100%;
-            }
-        }
-
-        a span:nth-child(2) {
-            top: -100%;
-            right: 0;
-            width: 2px;
-            height: 100%;
-            background: linear-gradient(180deg,
-                    transparent, #03e9f4);
-            animation: animate2 1s linear infinite;
-            animation-delay: 0.25s;
-        }
-
-        @keyframes animate2 {
-            0% {
-                top: -100%;
-            }
-
-            50%,
-            100% {
-                top: 100%;
-            }
-        }
-
-        a span:nth-child(3) {
-            bottom: 0;
-            right: 0;
-            width: 100%;
-            height: 2px;
-            background: linear-gradient(270deg, transparent, #03e9f4);
-            animation: animate3 1s linear infinite;
-            animation-delay: 0.50s;
-        }
-
-        @keyframes animate3 {
-            0% {
-                right: -100%;
-            }
-
-            50%,
-            100% {
-                right: 100%;
-            }
-        }
-
-
-        a span:nth-child(4) {
-            bottom: -100%;
-            left: 0;
-            width: 2px;
-            height: 100%;
-            background: linear-gradient(360deg, transparent, #03e9f4);
-            animation: animate4 1s linear infinite;
-            animation-delay: 0.75s;
-        }
-
-        @keyframes animate4 {
-            0% {
-                bottom: -100%;
-            }
-
-            50%,
-            100% {
-                bottom: 100%;
-            }
-        }
-    </style>
-
-    </style>
-    <script>
-        let count = 0;
-        function moveButton() {
-            var screenWidth = window.innerWidth;
-            var screenHeight = window.innerHeight;
-
-            var randomX = Math.floor(Math.random() * 311) - 170; // Left
-            var randomY = Math.floor(Math.random() * 701) - 400; // top
-
-            document.getElementById('noButton').style.left = randomX + 'px';
-            document.getElementById('noButton').style.top = randomY + 'px';
-
-            count++;
-            switch (count) {
-                case 1:
-                    document.getElementById('message').innerText = "Are you sure?"
-                    break;
-                case 4:
-                    document.getElementById('message').innerText = "No love vibes?"
-                    break;
-                case 9:
-                    document.getElementById('message').innerText = "Do you hate me?"
-                    break;
-                case 12:
-                    document.getElementById('message').innerText = "0_0"
-                    break;
-                case 14:
-                    document.getElementById('message').innerText = "I'm sorry"
-                    break;
-                case 16:
-                    document.getElementById('message').innerText = "Will you forgive me?"
-                    break;
-                default:
-                    break;
-            }
-        }
-
-        function displayText() {
-            document.getElementById('message').innerText = "I know you do <3"
-            document.getElementById('noButton').style.left = 0 + 'px';
-            document.getElementById('noButton').style.top = 0 + 'px';
-            count = 0;
-        }
-    </script>
+    <script src="index5.js" type="module"></script>
+    <title>Server Status</title>
 </head>
 
 <body>
-    <div id="message">Do you love me?</div>
-    <a href="#" id="yesButton" onclick="displayText()">
-        <span></span><span></span>
-        <span></span><span></span>
-        &nbsp &nbsp &nbsp Y E S &nbsp &nbsp &nbsp
-    </a>
-    <a href="#" id="noButton" onclick="moveButton()">
-        <span></span><span></span>
-        <span></span><span></span>
-        &nbsp &nbsp &nbsp N O &nbsp &nbsp &nbsp
-    </a>
+    <div class="sidebar">
+        <button id="allServers">All Servers</button>
+        <button onclick="showPanel('addServer')">Add Server</button>
+        <button onclick="showPanel('deleteServer')">Delete Server</button>
+        <button onclick="showPanel('editServer')">Edit Server</button>
+        <!-- Diğer seçenekler buraya eklenebilir -->
+    </div>
+    <div class="info-bar">
+        <div class="info-box">
+            <span id="activeServersCount">9</span>
+            <span id="activeServersLabel">Active Servers</span>
+        </div>
+        <div class="info-box">
+            <span id="offlineServersCount">1</span>
+            <span id="offlineServersLabel">Offline Servers</span>
+        </div>
+        <div class="info-box">
+            <span id="lastUpdateCount">0 <!-- <br> min ago --></span>
+            <span id="lastUpdateLabel">Last Update</span>
+        </div>
+        <!-- Diğer bilgi kutuları buraya eklenebilir -->
+    </div>
+    <div id="map"></div>
 
+    <div class="info-list">
+        <div id="all-list">
+            <h2>All Servers</h2>
+            <table id="info-table">
+                <tr>
+                    <th>Server Name</th>
+                    <th>Status</th>
+                    <th>Location</th>
+                    <th>Occupancy Rate</th>
+                </tr>
+            </table>
+        </div>
+    </div>
 </body>
 
 </html>
-
-
-
-<!-- console.log("beforeX: " + document.getElementById('noButton').style.left)
-            console.log("beforeY: " + document.getElementById('noButton').style.top)
-            console.log("---------------------")
-
-            console.log("afterX: " + document.getElementById('noButton').style.left)
-            console.log("afterY: " + document.getElementById('noButton').style.top) -->

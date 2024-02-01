@@ -1,0 +1,132 @@
+body {
+    margin: 0;
+    display: grid;
+    /* grid-template-columns: 250px ; */
+    grid-template-columns: 1fr 5fr ;
+    grid-template-rows: 200px;
+    grid-template-areas: "sidebar content content content"
+        "sidebar map map info";
+    height: 100vh;
+}
+
+.sidebar {
+    grid-area: sidebar;
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+}
+
+.sidebar button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #555;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.info-bar {
+    grid-area: content;
+    display: flex;
+    flex-direction: row;
+    /* Dikey yönde sıralama */
+    align-items: flex-start;
+    /* Sol üste hizalama */
+
+    background-color: #6f6767;
+    /* max-height: 200px; */
+}
+
+.info-box {
+    background-color: #3a3a3a7f;
+    margin-left: 10px;
+    margin-top: 10px;
+    width: 180px;
+    height: 180px;
+
+    display: inline-flex;
+    flex-direction: column;
+    /* justify-content: end;  */
+    align-items: center;
+    /* Yatayda ortala */
+
+    text-align: center;
+    font-size: 28px;
+    border-radius: 25px;
+}
+
+#activeServersLabel,
+#offlineServersLabel,
+#lastUpdateLabel {
+    margin-top: auto;
+    font-size: 19px;
+    font-weight: bolder;
+    color: #fff;
+    padding-bottom: 2px;
+}
+
+#activeServersCount,
+#offlineServersCount,
+#lastUpdateCount {
+    margin-top: auto;
+    padding-top: 30px;
+    font-size: 40px;
+    color: #fff;
+}
+
+#activeServersCount {
+    color: rgb(103, 238, 0);
+}
+
+#offlineServersCount {
+    color: red;
+}
+
+#map {
+    grid-area: map;
+}
+
+.info-list {
+    grid-area: info;
+    background-color: #e4e3cc;
+    display: flex;
+    width: 500px;
+}
+
+#all-list {
+    align-items: center;
+    text-align: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 100%;
+    /* background-color: #474747; */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    /* background-color: #fff; */
+}
+
+th, td {
+    border: 2px solid #fff;
+    padding: 8px;
+    text-align: left;
+    font-size: 17px;
+    font-weight: 500;
+}
+
+th {
+    background-color: #f2f2f2;
+    font-size: 20px;
+}
+
+.server-name:hover {
+    background-color: #afafaf5e;
+    cursor: pointer;
+}
+
