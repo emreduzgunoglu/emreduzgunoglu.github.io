@@ -147,27 +147,44 @@ let currentIngredients = [];
 
 function openIngredientPopup(itemName, ingredientsText) {
   currentItem = itemName;
-  currentIngredients = ingredientsText.split(',').map(i => i.trim());
+  currentIngredients = ingredientsText
+    .split(',')
+    .map(i => i.trim())
+    .filter(i => i.length > 0); // boşlukları temizle
 
   const list = document.getElementById("ingredientList");
   list.innerHTML = "";
   document.getElementById("popupTitle").innerText = `Customize ${itemName}`;
 
-  currentIngredients.forEach((ingredient, index) => {
-    const li = document.createElement("li");
-    li.innerHTML = `
-      <span>${ingredient}</span>
-      <button class="ingredientRemoveBtn" onclick="removeIngredient(${index})">✖</button>
-    `;
-    list.appendChild(li);
-  });
+  if (currentIngredients.length === 0) {
+    const emptyMsg = document.createElement("li");
+    emptyMsg.innerHTML = `<i style="color:#888">No ingredients left</i>`;
+    list.appendChild(emptyMsg);
+  } else {
+    currentIngredients.forEach((ingredient, index) => {
+      const li = document.createElement("li");
+      li.style.display = "flex";
+      li.style.justifyContent = "space-between";
+      li.style.alignItems = "center";
+      li.style.marginBottom = "10px";
+      li.innerHTML = `
+        <span>${ingredient}</span>
+        <button class="ingredientRemoveBtn">✖</button>
+      `;
+      li.querySelector("button").addEventListener("click", () => {
+        currentIngredients.splice(index, 1);
+        li.remove();
+        if (currentIngredients.length === 0) {
+          const empty = document.createElement("li");
+          empty.innerHTML = `<i style="color:#888">No ingredients left</i>`;
+          list.appendChild(empty);
+        }
+      });
+      list.appendChild(li);
+    });
+  }
 
   document.getElementById("ingredientPopup").style.display = "flex";
-}
-
-function removeIngredient(index) {
-  currentIngredients.splice(index, 1);
-  openIngredientPopup(currentItem, currentIngredients.join(', '));
 }
 
 function closeIngredientPopup() {
