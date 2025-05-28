@@ -150,17 +150,21 @@ function openIngredientPopup(itemName, ingredientsText) {
   currentIngredients = ingredientsText
     .split(',')
     .map(i => i.trim())
-    .filter(i => i.length > 0); // boşlukları temizle
+    .filter(i => i.length > 0);
 
   const list = document.getElementById("ingredientList");
   list.innerHTML = "";
   document.getElementById("popupTitle").innerText = `Customize ${itemName}`;
 
-  if (currentIngredients.length === 0) {
-    const emptyMsg = document.createElement("li");
-    emptyMsg.innerHTML = `<i style="color:#888">No ingredients left</i>`;
-    list.appendChild(emptyMsg);
-  } else {
+  const renderList = () => {
+    list.innerHTML = "";
+    if (currentIngredients.length === 0) {
+      const empty = document.createElement("li");
+      empty.innerHTML = `<i style="color:#888">No ingredients left</i>`;
+      list.appendChild(empty);
+      return;
+    }
+
     currentIngredients.forEach((ingredient, index) => {
       const li = document.createElement("li");
       li.style.display = "flex";
@@ -171,19 +175,17 @@ function openIngredientPopup(itemName, ingredientsText) {
         <span>${ingredient}</span>
         <button class="ingredientRemoveBtn">✖</button>
       `;
+
       li.querySelector("button").addEventListener("click", () => {
         currentIngredients.splice(index, 1);
-        li.remove();
-        if (currentIngredients.length === 0) {
-          const empty = document.createElement("li");
-          empty.innerHTML = `<i style="color:#888">No ingredients left</i>`;
-          list.appendChild(empty);
-        }
+        renderList(); // yeniden oluştur
       });
+
       list.appendChild(li);
     });
-  }
+  };
 
+  renderList();
   document.getElementById("ingredientPopup").style.display = "flex";
 }
 
