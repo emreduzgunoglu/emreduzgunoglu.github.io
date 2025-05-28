@@ -1080,7 +1080,6 @@
       </div>
     </div>
     
-    
     <style>
       @keyframes fadeInOut {
         0% { opacity: 0; transform: translate(-50%, 20px); }
@@ -1141,8 +1140,12 @@
         animation: fadeIn 0.4s ease-in-out;
       }
 
+      #billPopup.fade-out {
+        animation: fadeOut 0.3s ease-in-out forwards;
+      }
+
       #billContent {
-        background-color: white;
+        background-color: #29291f;
         padding: 25px;
         border-radius: 10px;
         max-width: 90vw;
@@ -1157,7 +1160,7 @@
         background: transparent;
         border: none;
         font-size: 24px;
-        color: #333;
+        color: #cda45e;
         cursor: pointer;
       }
 
@@ -1170,6 +1173,12 @@
         from { transform: translateY(40px); opacity: 0 }
         to { transform: translateY(0); opacity: 1 }
       }
+
+      @keyframes fadeOut {
+        from { opacity: 1; transform: translateY(0); }
+        to { opacity: 0; transform: translateY(40px); }
+      }
+
     </style>
 </body>
 

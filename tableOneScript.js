@@ -9,15 +9,19 @@ const firebaseConfig = {
   appId: "1:378232515783:web:488c46687815d4388fe2e2",
   measurementId: "G-33CEDTPMEJ"
 };
-  
+
 function showPopup(message) {
   const popup = document.getElementById("popupSuccess");
-  popup.innerText = message;
+  const payBtn = document.getElementById("payBillBtn");
+
+  popup.innerHTML = message;
   popup.style.display = "block";
+  payBtn.style.visibility = "hidden"; // butonu gizle
 
   setTimeout(() => {
     popup.style.display = "none";
-  }, 3000); // 3 saniye sonra kaybolur
+    payBtn.style.visibility = "visible"; // geri göster
+  }, 3000);
 }
 
 function showBill() {
@@ -58,7 +62,13 @@ function showBill() {
 }
 
 function closeBill() {
-  document.getElementById("billPopup").style.display = "none";
+  const popup = document.getElementById("billPopup");
+  popup.classList.add("fade-out");
+
+  setTimeout(() => {
+    popup.style.display = "none";
+    popup.classList.remove("fade-out"); 
+  }, 300); 
 }
 
 function payBill() {
@@ -68,7 +78,6 @@ function payBill() {
     showPopup("Payment completed. Thank you! 🙏");
   });
 }
-
 
 // Başlat
 firebase.initializeApp(firebaseConfig);
