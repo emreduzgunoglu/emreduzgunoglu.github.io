@@ -33,7 +33,7 @@ const firebaseConfig = {
     document.querySelectorAll(".orderBtn").forEach((button) => {
       button.addEventListener("click", () => {
         const item = button.closest(".single-menu").dataset.item;
-        const ref = db.ref("Website/Table-2" + item); // 🔄 güncel veri yolu
+        const ref = db.ref("Website/Table-2/" + item); // 🔄 güncel veri yolu
   
         ref.get().then((snapshot) => {
           const current = snapshot.val() || 0;
