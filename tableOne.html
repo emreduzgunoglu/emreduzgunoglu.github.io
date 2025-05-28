@@ -1042,8 +1042,8 @@
   </footer>
 
     <!-- Scroll Top -->
-    <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
+  <!--   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+ -->
     <!-- Preloader -->
     <div id="preloader"></div>
 
@@ -1070,11 +1070,20 @@
     <div id="billPopup" style="display:none">
       <div id="billContent">
         <button onclick="closeBill()" class="closeBtn">&times;</button>
-        <h4>🧾 Your Bill</h4>
+        <h4>Your Bill 🧾</h4>
         <div id="billItems"></div>
         <hr>
         <div id="billTotal" style="font-weight:bold;"></div>
         <button onclick="payBill()" class="btn btn-success mt-3">Pay Now 💸</button>
+      </div>
+    </div>
+
+    <div id="ingredientPopup" style="display:none">
+      <div id="ingredientContent">
+        <button onclick="closeIngredientPopup()" class="closeBtn">&times;</button>
+        <h4 id="popupTitle">Customize Ingredients 🍽️</h4>
+        <ul id="ingredientList"></ul>
+        <button id="confirmOrderBtn" class="btn btn-success mt-3">Order Now</button>
       </div>
     </div>
     
@@ -1181,6 +1190,48 @@
         font-size: 24px;
         color: #cda45e;
         cursor: pointer;
+      }
+
+      #ingredientPopup {
+        position: fixed;
+        top: 0; left: 0;
+        width: 100vw; height: 100vh;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 99999;
+        animation: fadeIn 0.4s ease-in-out;
+      }
+
+      #ingredientPopup.fade-out {
+        animation: fadeOut 0.3s ease-in-out forwards;
+      }
+
+      #ingredientContent {
+        background-color: white;
+        padding: 25px;
+        border-radius: 10px;
+        width: 400px;
+        max-width: 90vw;
+        position: relative;
+        animation: slideUp 0.3s ease;
+      }
+
+      #ingredientList {
+        list-style: none;
+        padding-left: 0;
+        margin-top: 15px;
+      }
+
+      #ingredientList li {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+        padding: 6px 10px;
+        background: #f8f9fa;
+        border-radius: 6px;
       }
 
       @keyframes fadeIn {

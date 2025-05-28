@@ -142,29 +142,74 @@ firebase.initializeApp(firebaseConfig);
 const db = firebase.database();
 const auth = firebase.auth();
 
-auth.signInAnonymously()
-  .then(() => {
-  console.log("Anonim giriş başarılı.");
+let currentItem = "";
+let currentIngredients = [];
 
-  // Sipariş butonları aktif hale gelsin
+function openIngredientPopup(itemName, ingredientsText) {
+  currentItem = itemName;
+  currentIngredients = ingredientsText.split(',').map(i => i.trim());
+
+  const list = document.getElementById("ingredientList");
+  list.innerHTML = "";
+  document.getElementById("popupTitle").innerText = `Customize ${itemName}`;
+
+  currentIngredients.forEach((ingredient, index) => {
+    const li = document.createElement("li");
+    li.innerHTML = `
+      <span>${ingredient}</span>
+      <button class="btn btn-sm btn-danger" onclick="removeIngredient(${index})">✖</button>
+    `;
+    list.appendChild(li);
+  });
+
+  document.getElementById("ingredientPopup").style.display = "flex";
+}
+
+function removeIngredient(index) {
+  currentIngredients.splice(index, 1);
+  openIngredientPopup(currentItem, currentIngredients.join(', '));
+}
+
+function closeIngredientPopup() {
+  const popup = document.getElementById("ingredientPopup");
+  popup.classList.add("fade-out");
+  setTimeout(() => {
+    popup.style.display = "none";
+    popup.classList.remove("fade-out");
+  }, 300);
+}
+
+window.addEventListener("DOMContentLoaded", () => {
+  const confirmBtn = document.getElementById("confirmOrderBtn");
+  if (confirmBtn) {
+    confirmBtn.addEventListener("click", () => {
+      const ref = db.ref("Website/Table-1/" + currentItem);
+      ref.get().then(snapshot => {
+        const current = snapshot.val() || 0;
+        ref.set(current + 1).then(() => {
+          closeIngredientPopup();
+          showPopup(`Your ${currentItem} order has been received! 🥳 (Total: ${current + 1})`);
+        });
+      }).catch(err => {
+        console.error("Sipariş hatası:", err);
+        showPopup("Order failed. Please try again.", color.red);
+      });
+    });
+  } else {
+    console.warn("#confirmOrderBtn not found in DOM");
+  }
+});
+
+auth.signInAnonymously().then(() => {
+  console.log("Anonim giriş başarılı.");
   document.querySelectorAll(".orderBtn").forEach((button) => {
     button.addEventListener("click", () => {
       const item = button.closest(".single-menu").dataset.item;
-      const ref = db.ref("Website/Table-1/" + item); // 🔄 güncel veri yolu
-
-      ref.get().then((snapshot) => {
-        const current = snapshot.val() || 0;
-        ref.set(current + 1).then(() => {
-          showPopup(`Your ${item} order has been received! 🥳`);
-        });
-      }).catch((err) => {
-        console.error("Veritabanı hatası:", err);
-        showPopup("Hata oluştu. Lütfen tekrar deneyin.", color.red);
-      });
+      const ingredientsText = button.closest(".single-menu").querySelector(".menu-ingredients").innerText;
+      openIngredientPopup(item, ingredientsText);
     });
   });
-})
-.catch((error) => {
+}).catch((error) => {
   console.error("Anonim giriş hatası:", error.message);
   showPopup("Bağlantı kurulamadı. Menü yüklenemedi.", color.red);
-});   
+});
