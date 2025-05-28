@@ -207,7 +207,7 @@ window.addEventListener("DOMContentLoaded", () => {
         const current = snapshot.val() || 0;
         ref.set(current + 1).then(() => {
           closeIngredientPopup();
-          showPopup(`Your ${currentItem} order has been received! 🥳 (Total: ${current + 1})`);
+          showPopup(`Your ${currentItem} order has been received! 🥳`);
         });
       }).catch(err => {
         console.error("Sipariş hatası:", err);
