@@ -69,6 +69,8 @@ function showBill() {
       for (const item in data) {
         if (item === "callWaiter") continue;
         const qty = data[item];
+        if (!qty || qty === 0) continue; // ✅ Sıfırları gösterme
+
         const price = prices[item] || 0;
         const subtotal = qty * price;
         total += subtotal;
