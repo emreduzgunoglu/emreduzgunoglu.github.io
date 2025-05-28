@@ -1067,7 +1067,20 @@
     <script src="tableOneScript.js"></script>
 
     <div id="popupSuccess">Order received! 🥳 </div>
+    <button id="payBillBtn" onclick="showBill()">💳 Pay Bill</button>
 
+    <div id="billPopup" style="display:none">
+      <div id="billContent">
+        <button onclick="closeBill()" class="closeBtn">&times;</button>
+        <h4>🧾 Your Bill</h4>
+        <div id="billItems"></div>
+        <hr>
+        <div id="billTotal" style="font-weight:bold;"></div>
+        <button onclick="payBill()" class="btn btn-success mt-3">Pay Now 💸</button>
+      </div>
+    </div>
+    
+    
     <style>
       @keyframes fadeInOut {
         0% { opacity: 0; transform: translate(-50%, 20px); }
@@ -1095,6 +1108,67 @@
         animation: fadeInOut 3s ease-in-out;
         line-height: 1.4;
         word-wrap: break-word;
+      }
+
+      #payBillBtn {
+        position: fixed;
+        bottom: 20px;
+        left: 20px; /* ✅ Sol alt köşe */
+        background-color: #dc3545;
+        color: white;
+        border: none;
+        border-radius: 30px;
+        padding: 12px 20px;
+        font-size: 16px;
+        z-index: 10000;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        transition: transform 0.3s ease;
+      }
+
+      #payBillBtn:hover {
+        background-color: #bb2d3b;
+        cursor: pointer;
+        transform: scale(1.05);
+      }
+
+      #billPopup {
+        position: fixed;
+        top: 0; left: 0;
+        width: 100vw; height: 100vh;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: flex; align-items: center; justify-content: center;
+        z-index: 99999;
+        animation: fadeIn 0.4s ease-in-out;
+      }
+
+      #billContent {
+        background-color: white;
+        padding: 25px;
+        border-radius: 10px;
+        max-width: 90vw;
+        width: 400px;
+        animation: slideUp 0.3s ease;
+        position: relative;
+      }
+
+      .closeBtn {
+        position: absolute;
+        top: 10px; right: 10px;
+        background: transparent;
+        border: none;
+        font-size: 24px;
+        color: #333;
+        cursor: pointer;
+      }
+
+      @keyframes fadeIn {
+        from { opacity: 0 }
+        to { opacity: 1 }
+      }
+
+      @keyframes slideUp {
+        from { transform: translateY(40px); opacity: 0 }
+        to { transform: translateY(0); opacity: 1 }
       }
     </style>
 </body>
