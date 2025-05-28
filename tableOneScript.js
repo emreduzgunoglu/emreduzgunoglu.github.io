@@ -38,7 +38,7 @@ const firebaseConfig = {
         ref.get().then((snapshot) => {
           const current = snapshot.val() || 0;
           ref.set(current + 1).then(() => {
-            showPopup(`Your ${item} order has been received! 🥳 (Total: ${current + 1})`);
+            showPopup(`Your ${item} order has been received! 🥳<br>(Total: ${current + 1})`);
           });
         }).catch((err) => {
           console.error("Veritabanı hatası:", err);
