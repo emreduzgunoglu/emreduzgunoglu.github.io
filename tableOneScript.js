@@ -12,16 +12,25 @@ const firebaseConfig = {
 
 function showPopup(message) {
   const popup = document.getElementById("popupSuccess");
-  const payBtn = document.getElementById("payBillBtn");
+  const fabToggle = document.getElementById("fabToggle");
+  const floatingActions = document.getElementById("floatingActions");
 
   popup.innerHTML = message;
   popup.style.display = "block";
-  payBtn.style.visibility = "hidden"; // butonu gizle
+
+  // Diğer sabit butonları gizle
+  fabToggle.style.visibility = "hidden";
+  floatingActions.style.visibility = "hidden";
 
   setTimeout(() => {
     popup.style.display = "none";
-    payBtn.style.visibility = "visible"; // geri göster
+    fabToggle.style.visibility = "visible";
+    floatingActions.style.visibility = floatingActions.classList.contains("active") ? "visible" : "hidden";
   }, 3000);
+}
+
+function toggleActions() {
+  document.getElementById("floatingActions").classList.toggle("active");
 }
 
 function showBill() {
@@ -80,6 +89,13 @@ function payBill() {
   ref.remove().then(() => {
     closeBill();
     showPopup("Payment completed. Thank you! 🙏");
+  });
+}
+
+function callWaiter() {
+  const ref = db.ref("Website/Table-1/callWaiter");
+  ref.set(true).then(() => {
+    showPopup("A waiter has been notified! 🛎️");
   });
 }
 
