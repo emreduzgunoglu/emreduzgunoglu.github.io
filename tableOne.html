@@ -1066,10 +1066,21 @@
     <script src="assets/js/main.js"></script>
     <script src="tableOneScript.js"></script>
 
-    <div id="popupSuccess" style="
+    <div id="popupSuccess">Order received! 🥳 </div>
+
+    <style>
+      @keyframes fadeInOut {
+        0% { opacity: 0; transform: translate(-50%, 20px); }
+        10% { opacity: 1; transform: translate(-50%, 0); }
+        90% { opacity: 1; transform: translate(-50%, 0); }
+        100% { opacity: 0; transform: translate(-50%, 20px); }
+      }
+    
+      #popupSuccess {
         position: fixed;
         bottom: 30px;
-        right: 30px;
+        left: 50%;
+        transform: translateX(-50%);
         background-color: #28a745;
         color: white;
         padding: 15px 25px;
@@ -1078,9 +1089,9 @@
         display: none;
         z-index: 9999;
         box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        ">
-        Order received! 🥳
-    </div>
+        animation: fadeInOut 3s ease-in-out;
+      }
+    </style>
 </body>
 
 </html>
