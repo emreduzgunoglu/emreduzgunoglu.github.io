@@ -1080,7 +1080,7 @@
 
     <div id="ingredientPopup" style="display:none">
       <div id="ingredientContent">
-        <button onclick="closeIngredientPopup()" class="closeBtn">&times;</button>
+        <button onclick="closeIngredientPopup()" class="popupCloseBtn">&times;</button>
         <h4 id="popupTitle">Customize Ingredients 🍽️</h4>
         <ul id="ingredientList"></ul>
         <button id="confirmOrderBtn" class="btn btn-success mt-3">Order Now</button>
@@ -1232,6 +1232,35 @@
         padding: 6px 10px;
         background: #1f1f1f;
         border-radius: 6px;
+      }
+
+      .popupCloseBtn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: transparent;
+        border: none;
+        font-size: 24px;
+        color: #c00;
+        cursor: pointer;
+      }
+
+      .ingredientRemoveBtn {
+        background-color: white;
+        color: black;
+        border: 1px solid #ccc;
+        border-radius: 50%;
+        width: 26px;
+        height: 26px;
+        font-size: 16px;
+        line-height: 1;
+        padding: 0;
+        cursor: pointer;
+      }
+      .ingredientRemoveBtn:hover {
+        background-color: #f8d7da;
+        color: #721c24;
+        border-color: #f5c6cb;
       }
 
       @keyframes fadeIn {

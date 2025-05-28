@@ -157,7 +157,7 @@ function openIngredientPopup(itemName, ingredientsText) {
     const li = document.createElement("li");
     li.innerHTML = `
       <span>${ingredient}</span>
-      <button class="closeBtn" onclick="removeIngredient(${index})">✖</button>
+      <button class="ingredientRemoveBtn" onclick="removeIngredient(${index})">✖</button>
     `;
     list.appendChild(li);
   });
