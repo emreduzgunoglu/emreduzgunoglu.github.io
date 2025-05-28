@@ -10,27 +10,40 @@ const firebaseConfig = {
   measurementId: "G-33CEDTPMEJ"
 };
 
-function showPopup(message) {
+const color = {
+  green: "#28a745",   // Success
+  red: "#dc3545",     // Error
+  yellow: "#ffc107",  // Warning
+  blue: "#007bff"     // Info (opsiyonel)
+};
+
+function showPopup(message, color = "#28a745") { 
   const popup = document.getElementById("popupSuccess");
-  const fabToggle = document.getElementById("fabToggle");
-  const floatingActions = document.getElementById("floatingActions");
+  const payBtn = document.getElementById("payBillBtn");
+  const callBtn = document.getElementById("callWaiterBtn");
 
   popup.innerHTML = message;
+  popup.style.backgroundColor = color; 
   popup.style.display = "block";
 
-  // Diğer sabit butonları gizle
-  fabToggle.style.visibility = "hidden";
-  floatingActions.style.visibility = "hidden";
+  payBtn.style.visibility = "hidden";
+  callBtn.style.visibility = "hidden";
 
   setTimeout(() => {
     popup.style.display = "none";
-    fabToggle.style.visibility = "visible";
-    floatingActions.style.visibility = floatingActions.classList.contains("active") ? "visible" : "hidden";
+    payBtn.style.visibility = "visible";
+    callBtn.style.visibility = "visible";
   }, 3000);
 }
 
-function toggleActions() {
-  document.getElementById("floatingActions").classList.toggle("active");
+function callWaiter() {
+  const ref = db.ref("Website/Table-1/callWaiter");
+  ref.set(true).then(() => {
+    showPopup("A waiter is on the way! 🛎️");
+  }).catch((err) => {
+    console.error("Çağrı hatası:", err);
+    showPopup("An error occurred while calling the waiter.", color.red);
+  });
 }
 
 function showBill() {
@@ -47,31 +60,36 @@ function showBill() {
     "Lobster Roll": 12.95
   };
 
-  ref.get().then(snapshot => {
-    const data = snapshot.val() || {};
-    let html = "";
-    let total = 0;
+  ref.get()
+    .then(snapshot => {
+      const data = snapshot.val() || {};
+      let html = "";
+      let total = 0;
 
-    for (const item in data) {
-      if (item === "callWaiter") continue;
-      const qty = data[item];
-      const price = prices[item] || 0;
-      const subtotal = qty * price;
-      total += subtotal;
-      html += `<div style="display:flex; justify-content:space-between;">
+      for (const item in data) {
+        if (item === "callWaiter") continue;
+        const qty = data[item];
+        const price = prices[item] || 0;
+        const subtotal = qty * price;
+        total += subtotal;
+        html += `<div style="display:flex; justify-content:space-between;">
                   <span>${item} × ${qty}</span>
                   <span>$${subtotal.toFixed(2)}</span>
                 </div>`;
-    }
+      }
 
-    document.getElementById("billItems").innerHTML = html || "<i>No items ordered.</i>";
-    document.getElementById("billTotal").innerHTML = `
-      <div style="display: flex; justify-content: space-between;">
-        <span><strong>Total</strong></span>
-        <span><strong>$${total.toFixed(2)}</strong></span>
-      </div>`;
-    document.getElementById("billPopup").style.display = "flex";
-  });
+      document.getElementById("billItems").innerHTML = html || "<i>No items ordered.</i>";
+      document.getElementById("billTotal").innerHTML = `
+        <div style="display: flex; justify-content: space-between;">
+          <span><strong>Total</strong></span>
+          <span><strong>$${total.toFixed(2)}</strong></span>
+        </div>`;
+      document.getElementById("billPopup").style.display = "flex";
+    })
+    .catch(err => {
+      console.error("Hesap görüntülenemedi:", err);
+      showPopup("An error occurred while loading the bill.", color.red);
+    });
 }
 
 function closeBill() {
@@ -86,17 +104,35 @@ function closeBill() {
 
 function payBill() {
   const ref = db.ref("Website/Table-1");
-  ref.remove().then(() => {
-    closeBill();
-    showPopup("Payment completed. Thank you! 🙏");
-  });
-}
 
-function callWaiter() {
-  const ref = db.ref("Website/Table-1/callWaiter");
-  ref.set(true).then(() => {
-    showPopup("A waiter has been notified! 🛎️");
-  });
+  ref.get()
+    .then(snapshot => {
+      const data = snapshot.val();
+      if (!data) {
+        showPopup("No bill found to reset.", color.yellow);
+        return;
+      }
+
+      const updates = {};
+      for (const item in data) {
+        updates[item] = (item === "callWaiter") ? false : 0;
+      }
+
+      ref.update(updates)
+        .then(() => {
+          closeBill();
+          showPopup("Payment completed. Thank you! 🙏");
+        })
+        .catch(err => {
+          console.error("Veriler sıfırlanamadı:", err);
+          showPopup("An error occurred while resetting the bill.", color.red);
+        });
+
+    })
+    .catch(err => {
+      console.error("Veritabanı okuma hatası:", err);
+      showPopup("An error occurred while accessing the bill.", color.red);
+    });
 }
 
 // Başlat
@@ -121,12 +157,12 @@ auth.signInAnonymously()
         });
       }).catch((err) => {
         console.error("Veritabanı hatası:", err);
-        showPopup("Hata oluştu. Lütfen tekrar deneyin.");
+        showPopup("Hata oluştu. Lütfen tekrar deneyin.", color.red);
       });
     });
   });
 })
 .catch((error) => {
   console.error("Anonim giriş hatası:", error.message);
-  alert("Bağlantı kurulamadı. Menü yüklenemedi.");
+  showPopup("Bağlantı kurulamadı. Menü yüklenemedi.", color.red);
 });   

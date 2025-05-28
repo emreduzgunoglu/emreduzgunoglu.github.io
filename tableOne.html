@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Index - Restaurantly Bootstrap Template</title>
+  <title>The Menu</title>
   <meta name="description" content="">
   <meta name="keywords" content="">
 
@@ -40,7 +40,7 @@
 
   <header id="header" class="header fixed-top">
 
-    <div class="topbar d-flex align-items-center">
+<!--     <div class="topbar d-flex align-items-center">
       <div class="container d-flex justify-content-center justify-content-md-between">
         <div class="contact-info d-flex align-items-center">
           <i class="bi bi-envelope d-flex align-items-center"><a href="mailto:contact@example.com">contact@example.com</a></i>
@@ -53,7 +53,7 @@
           </ul>
         </div>
       </div>
-    </div><!-- End Top Bar -->
+    </div> --><!-- End Top Bar -->
 
     <div class="branding d-flex align-items-cente">
 
@@ -61,7 +61,7 @@
         <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
           <!-- Uncomment the line below if you also wish to use an image logo -->
           <!-- <img src="assets/img/logo.png" alt=""> -->
-          <h1 class="sitename">Restaurantly</h1>
+          <h1 class="sitename">The Menu</h1>
         </a>
 
         <nav id="navmenu" class="navmenu">
@@ -73,7 +73,7 @@
             <li><a href="#events">Events</a></li>
             <li><a href="#chefs">Chefs</a></li>
             <li><a href="#gallery">Gallery</a></li>
-            <li class="dropdown"><a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+<!--             <li class="dropdown"><a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
               <ul>
                 <li><a href="#">Dropdown 1</a></li>
                 <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
@@ -89,7 +89,7 @@
                 <li><a href="#">Dropdown 3</a></li>
                 <li><a href="#">Dropdown 4</a></li>
               </ul>
-            </li>
+            </li> -->
             <li><a href="#contact">Contact</a></li>
           </ul>
           <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
@@ -113,15 +113,12 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-8 d-flex flex-column align-items-center align-items-lg-start">
-            <h2 data-aos="fade-up" data-aos-delay="100">Welcome to <span>Restaurantly</span></h2>
-            <p data-aos="fade-up" data-aos-delay="200">Delivering great food for more than 18 years!</p>
+            <h2 data-aos="fade-up" data-aos-delay="100">Welcome to <span>The Menu</span></h2>
+            <p data-aos="fade-up" data-aos-delay="200">Next-generation digital menu!</p>
             <div class="d-flex mt-4" data-aos="fade-up" data-aos-delay="300">
               <a href="#menu" class="cta-btn">Our Menu</a>
-              <a href="#book-a-table" class="cta-btn">Book a Table</a>
+             <!--  <a href="#book-a-table" class="cta-btn">Book a Table</a> -->
             </div>
-          </div>
-          <div class="col-lg-4 d-flex align-items-center justify-content-center mt-5 mt-lg-0">
-            <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" class="glightbox pulsating-play-btn"></a>
           </div>
         </div>
       </div>
@@ -1067,12 +1064,8 @@
     <script src="tableOneScript.js"></script>
 
     <div id="popupSuccess">Order received! 🥳 </div>
-    <button id="fabToggle" onclick="toggleActions()">☰</button>
-
-    <div id="floatingActions">
-      <button onclick="showBill()">💳 Pay Bill</button>
-      <button onclick="callWaiter()">🛎️ Call Waiter</button>
-    </div>
+    <button id="payBillBtn" onclick="showBill()">💳 Pay Bill</button>
+    <button id="callWaiterBtn" onclick="callWaiter()">🛎️ Call Waiter</button>
 
     <div id="billPopup" style="display:none">
       <div id="billContent">
@@ -1097,7 +1090,7 @@
         position: fixed;
         bottom: 30px;
         left: 50%;
-        transform: translate(-50%, 0);
+        transform: translateX(-50%);
         width: 80vw; /* genişlik ekranın %80'i */
         max-width: 400px;
         background-color: #28a745;
@@ -1131,6 +1124,27 @@
 
       #payBillBtn:hover {
         background-color: #bb2d3b;
+        cursor: pointer;
+        transform: scale(1.05);
+      }
+
+      #callWaiterBtn {
+        position: fixed;
+        bottom: 20px;
+        right: 20px; /* ✅ Sağ alt köşe */
+        background-color: #cda45e;
+        color: rgb(255, 255, 255);
+        border: none;
+        border-radius: 30px;
+        padding: 12px 20px;
+        font-size: 16px;
+        z-index: 10000;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        transition: transform 0.3s ease;
+      }
+
+      #callWaiterBtn:hover {
+        background-color: #e0a800;
         cursor: pointer;
         transform: scale(1.05);
       }
@@ -1169,76 +1183,6 @@
         cursor: pointer;
       }
 
-      #fabToggle {
-        position: fixed;
-        bottom: 20px;
-        left: 20px;
-        z-index: 10000;
-        background-color: #cda45e;
-        color: black;
-        border: none;
-        border-radius: 50%;
-        width: 55px;
-        height: 55px;
-        font-size: 22px;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        transition: background-color 0.3s ease;
-      }
-
-      #fabToggle:hover {
-        background-color: #735a28;
-        cursor: pointer;
-      }
-
-      #floatingActions button {
-        background-color: #cda45e;
-        color: white;
-        border: none;
-        padding: 10px 16px;
-        border-radius: 25px;
-        font-size: 14px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        transition: background-color 0.3s ease;
-      }
-
-      #floatingActions button:hover {
-        background-color: #735a28;
-        cursor: pointer;
-      }
-
-      #floatingActions {
-        position: fixed;
-        bottom: 80px;
-        left: 20px;
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        z-index: 9999;
-        opacity: 0;
-        pointer-events: none;
-        transition: all 0.3s ease-in-out;
-        transform: translateY(20px);
-      }
-
-      #floatingActions.active {
-        opacity: 1;
-        pointer-events: auto;
-        transform: translateY(0);
-      }
-
-      #floatingActions button {
-        background-color: #cda45e;
-        color: white;
-        border: none;
-        padding: 10px 16px;
-        border-radius: 25px;
-        font-size: 14px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-      }
-
       @keyframes fadeIn {
         from { opacity: 0 }
         to { opacity: 1 }
@@ -1252,12 +1196,6 @@
       @keyframes fadeOut {
         from { opacity: 1; transform: translateY(0); }
         to { opacity: 0; transform: translateY(40px); }
-      }
-
-      @keyframes fadeInOut {
-        0% { opacity: 0; transform: translateY(20px); }
-        10%, 90% { opacity: 1; transform: translateY(0); }
-        100% { opacity: 0; transform: translateY(20px); }
       }
 
     </style>
