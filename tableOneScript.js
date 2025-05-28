@@ -56,7 +56,11 @@ function showBill() {
     }
 
     document.getElementById("billItems").innerHTML = html || "<i>No items ordered.</i>";
-    document.getElementById("billTotal").innerText = `Total: $${total.toFixed(2)}`;
+    document.getElementById("billTotal").innerHTML = `
+      <div style="display: flex; justify-content: space-between;">
+        <span><strong>Total</strong></span>
+        <span><strong>$${total.toFixed(2)}</strong></span>
+      </div>`;
     document.getElementById("billPopup").style.display = "flex";
   });
 }
