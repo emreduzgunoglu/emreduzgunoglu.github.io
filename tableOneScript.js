@@ -17,6 +17,8 @@ const color = {
   blue: "#007bff"     // Info (opsiyonel)
 };
 
+const tableName = "Table-1";
+
 function showPopup(message, color = "#28a745") { 
   const popup = document.getElementById("popupSuccess");
   const payBtn = document.getElementById("payBillBtn");
@@ -37,9 +39,9 @@ function showPopup(message, color = "#28a745") {
 }
 
 function callWaiter() {
-  const ref = db.ref("Website/Table-1/callWaiter");
+  const ref = db.ref("Website/" + tableName + "/callWaiter");
   ref.set(true).then(() => {
-    showPopup("A waiter is on the way! 🛎️");
+    showPopup("A waiter is on the way to " + tableName + "! 🛎️");
   }).catch((err) => {
     console.error("Çağrı hatası:", err);
     showPopup("An error occurred while calling the waiter.", color.red);
@@ -47,7 +49,7 @@ function callWaiter() {
 }
 
 function showBill() {
-  const ref = db.ref("Website/Table-1");
+  const ref = db.ref("Website/" + tableName);
   const prices = {
     "Lobster Bisque": 5.95,
     "Bread Barrel": 6.95,
@@ -105,7 +107,7 @@ function closeBill() {
 }
 
 function payBill() {
-  const ref = db.ref("Website/Table-1");
+  const ref = db.ref("Website/" + tableName);
 
   ref.get()
     .then(snapshot => {
@@ -123,7 +125,7 @@ function payBill() {
       ref.update(updates)
         .then(() => {
           closeBill();
-          showPopup("Payment completed. Thank you! 🙏");
+          showPopup("Payment for " + tableName + " completed. Thank you! 🙏");
         })
         .catch(err => {
           console.error("Veriler sıfırlanamadı:", err);
@@ -202,12 +204,12 @@ window.addEventListener("DOMContentLoaded", () => {
   const confirmBtn = document.getElementById("confirmOrderBtn");
   if (confirmBtn) {
     confirmBtn.addEventListener("click", () => {
-      const ref = db.ref("Website/Table-1/" + currentItem);
+      const ref = db.ref("Website/" + tableName + "/" + currentItem);
       ref.get().then(snapshot => {
         const current = snapshot.val() || 0;
         ref.set(current + 1).then(() => {
           closeIngredientPopup();
-          showPopup(`Your ${currentItem} order has been received! 🥳`);
+          showPopup(`Your ${currentItem} order for ` + tableName + ` has been received! 🥳`);
         });
       }).catch(err => {
         console.error("Sipariş hatası:", err);
