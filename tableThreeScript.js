@@ -17,7 +17,7 @@ const color = {
   blue: "#007bff"     // Info (opsiyonel)
 };
 
-const tableName = "Table-2";
+const tableName = "Table-3";
 
 function showPopup(message, color = "#28a745") { 
   const popup = document.getElementById("popupSuccess");
