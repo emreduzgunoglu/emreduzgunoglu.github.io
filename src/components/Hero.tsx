@@ -9,29 +9,11 @@ export function Hero() {
       id="hero"
       className="pt-16 relative overflow-hidden"
       style={{
-        background: `linear-gradient(135deg, var(--law-navy) 0%, #1a3a5c 100%)`
+        background: `#15263e`
       }}
     >
-      {/* Decorative elements */}
-      <div
-        className="absolute top-0 right-0 w-96 h-96 rounded-full opacity-10"
-        style={{
-          background: `radial-gradient(circle, var(--law-gold) 0%, transparent 70%)`,
-          transform: 'translate(30%, -30%)',
-          animation: 'pulse 4s ease-in-out infinite'
-        }}
-      />
-      <div
-        className="absolute bottom-0 left-0 w-96 h-96 rounded-full opacity-10"
-        style={{
-          background: `radial-gradient(circle, var(--law-blue) 0%, transparent 70%)`,
-          transform: 'translate(-30%, 30%)',
-          animation: 'pulse 4s ease-in-out infinite 2s'
-        }}
-      />
-
       {/* Logo Image - Full Width Banner */}
-      <div className="relative z-10 w-full pt-8">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
         <img
           src={logoImage}
           alt="Meray Hukuk ve Danışmanlık"
@@ -39,7 +21,8 @@ export function Hero() {
           style={{
             maxHeight: "70vh",
             objectFit: "contain",
-            filter: 'drop-shadow(0 0 30px rgba(201, 162, 39, 0.3))'
+            imageRendering: 'auto',
+            WebkitFontSmoothing: 'antialiased'
           }}
         />
       </div>
@@ -47,11 +30,12 @@ export function Hero() {
       {/* Description Text */}
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 relative z-10">
         <p
-          className="mb-6 text-lg leading-relaxed text-center"
+          className="mb-6 text-lg leading-relaxed"
           style={{
             color: "var(--law-blue)",
             fontSize: "clamp(1rem, 2vw, 1.15rem)",
-            animation: 'fadeInUp 1s ease-out 0.5s backwards'
+            animation: 'fadeInUp 1s ease-out 0.5s backwards',
+            textAlign: 'justify'
           }}
         >
           {language === 'tr'
@@ -60,11 +44,12 @@ export function Hero() {
         </p>
 
         <p
-          className="text-lg leading-relaxed text-center"
+          className="mb-8 text-lg leading-relaxed"
           style={{
             color: "var(--law-blue)",
             fontSize: "clamp(1rem, 2vw, 1.15rem)",
-            animation: 'fadeInUp 1s ease-out 0.7s backwards'
+            animation: 'fadeInUp 1s ease-out 0.7s backwards',
+            textAlign: 'justify'
           }}
         >
           {language === 'tr'
