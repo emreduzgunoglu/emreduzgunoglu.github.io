@@ -84,42 +84,17 @@ export function Footer() {
               {t.services.title}
             </h4>
             <ul className="space-y-2">
-              <li>
-                <Link
-                  to="/hizmetlerimiz"
-                  className="transition-colors hover:opacity-80"
-                  style={{ color: "#9ca3af", fontSize: "0.875rem" }}
-                >
-                  {t.services.criminalLaw.title}
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/hizmetlerimiz"
-                  className="transition-colors hover:opacity-80"
-                  style={{ color: "#9ca3af", fontSize: "0.875rem" }}
-                >
-                  {t.services.commercialLaw.title}
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/hizmetlerimiz"
-                  className="transition-colors hover:opacity-80"
-                  style={{ color: "#9ca3af", fontSize: "0.875rem" }}
-                >
-                  {t.services.familyLaw.title}
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/hizmetlerimiz"
-                  className="transition-colors hover:opacity-80"
-                  style={{ color: "#9ca3af", fontSize: "0.875rem" }}
-                >
-                  {t.services.laborLaw.title}
-                </Link>
-              </li>
+              {t.services.categories.slice(0, 4).map((category) => (
+                <li key={category.id}>
+                  <Link
+                    to={`/hizmetlerimiz/${category.id}`}
+                    className="transition-colors hover:opacity-80"
+                    style={{ color: "#9ca3af", fontSize: "0.875rem" }}
+                  >
+                    {category.title}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 

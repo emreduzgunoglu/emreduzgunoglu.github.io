@@ -1,37 +1,15 @@
-import {
-  Scale,
-  Heart,
-  Briefcase,
-  Users,
-  FileText,
-  Home,
-  Building2,
-  ShoppingCart,
-  Shield,
-  Laptop,
-  HeartPulse,
-  FileSignature
-} from "lucide-react";
 import { ServiceCard } from "./ServiceCard";
 import { useLanguage } from "../contexts/LanguageContext";
 
-export function Services() {
-  const { t } = useLanguage();
+// Function to resolve asset paths properly in Vite.  
+// Since images are in src/assets, we can define a utility function to dynamically build the path.
+function getImagePath(prefix: string, language: string) {
+  // Using new URL to resolve asset paths works well in Vite for dynamic imports
+  return new URL(`../assets/${prefix} ${language}.jpeg`, import.meta.url).href;
+}
 
-  const services = [
-    { icon: Scale, title: t.services.criminalLaw.title, description: t.services.criminalLaw.description },
-    { icon: Heart, title: t.services.familyLaw.title, description: t.services.familyLaw.description },
-    { icon: Briefcase, title: t.services.commercialLaw.title, description: t.services.commercialLaw.description },
-    { icon: Users, title: t.services.laborLaw.title, description: t.services.laborLaw.description },
-    { icon: FileText, title: t.services.executionLaw.title, description: t.services.executionLaw.description },
-    { icon: Home, title: t.services.inheritanceLaw.title, description: t.services.inheritanceLaw.description },
-    { icon: Building2, title: t.services.realEstateLaw.title, description: t.services.realEstateLaw.description },
-    { icon: ShoppingCart, title: t.services.consumerLaw.title, description: t.services.consumerLaw.description },
-    { icon: Shield, title: t.services.insuranceLaw.title, description: t.services.insuranceLaw.description },
-    { icon: Laptop, title: t.services.informationLaw.title, description: t.services.informationLaw.description },
-    { icon: HeartPulse, title: t.services.healthLaw.title, description: t.services.healthLaw.description },
-    { icon: FileSignature, title: t.services.contractLaw.title, description: t.services.contractLaw.description }
-  ];
+export function Services() {
+  const { t, language } = useLanguage();
 
   return (
     <section
@@ -45,7 +23,7 @@ export function Services() {
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2
-            className="mb-4"
+            className="mb-4 text-3xl md:text-5xl font-bold"
             style={{ color: "var(--law-navy)" }}
           >
             {t.services.title}
@@ -62,14 +40,14 @@ export function Services() {
           </p>
         </div>
 
-        {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {services.map((service, index) => (
+        {/* Services Grid (Images) - Using a responsive 4-column grid for large screens */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          {t.services.categories.map((service) => (
             <ServiceCard
-              key={index}
-              icon={service.icon}
+              key={service.id}
+              id={service.id}
               title={service.title}
-              description={service.description}
+              imagePath={getImagePath(service.imagePrefix, language)}
             />
           ))}
         </div>
