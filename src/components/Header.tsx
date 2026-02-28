@@ -77,6 +77,17 @@ export function Header() {
               {t.header.services}
             </Link>
             <Link
+              to="/blog"
+              className="transition-colors hover:opacity-70"
+              style={{
+                color: "var(--law-navy)",
+                borderBottom: isActive("/blog") ? "2px solid var(--law-gold)" : "2px solid transparent",
+                paddingBottom: "4px"
+              }}
+            >
+              {t.header.blog}
+            </Link>
+            <Link
               to="/iletisim"
               className="transition-colors hover:opacity-70"
               style={{
@@ -136,6 +147,17 @@ export function Header() {
               }}
             >
               {t.header.services}
+            </Link>
+            <Link
+              to="/blog"
+              onClick={() => setIsMenuOpen(false)}
+              className="block w-full text-left py-2 px-4 rounded transition-colors"
+              style={{
+                color: "var(--law-navy)",
+                backgroundColor: isActive("/blog") ? "var(--law-bg)" : "transparent"
+              }}
+            >
+              {t.header.blog}
             </Link>
             <Link
               to="/iletisim"
