@@ -44,9 +44,9 @@ export function Contact() {
                   <h4 style={{ color: "var(--law-navy)" }}>
                     {t.contact.address}
                   </h4>
-                  <p style={{ color: "var(-law-text)" }}>
-                    Kızılay Mahallesi, Atatürk Bulvarı No: 123<br />
-                    Çankaya / Ankara
+                  <p style={{ color: "var(--law-text)" }}>
+                    Devlet Mah. 263. Sk. Akcenter No:6/121<br />
+                    Etimesgut / Ankara
                   </p>
                 </div>
               </div>
@@ -70,8 +70,7 @@ export function Contact() {
                     {t.contact.phone}
                   </h4>
                   <p style={{ color: "var(--law-text)" }}>
-                    +90 (312) 123 45 67<br />
-                    +90 (532) 123 45 67
+                    0507 935 59 63
                   </p>
                 </div>
               </div>

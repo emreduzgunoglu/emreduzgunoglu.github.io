@@ -61,9 +61,9 @@ export function ContactPage() {
                       {t.contact.address}
                     </h3>
                     <p style={{ color: "var(--law-text)" }}>
-                      Kızılay Mahallesi<br />
-                      Atatürk Bulvarı No: 123<br />
-                      Çankaya / Ankara
+                      Devlet Mah. 263. Sk.<br />
+                      Akcenter No:6/121<br />
+                      Etimesgut / Ankara
                     </p>
                   </div>
                 </div>
@@ -92,8 +92,7 @@ export function ContactPage() {
                       {t.contact.phone}
                     </h3>
                     <p style={{ color: "var(--law-text)" }}>
-                      +90 (312) 123 45 67<br />
-                      +90 (532) 123 45 67
+                      0507 935 59 63
                     </p>
                   </div>
                 </div>
@@ -180,7 +179,7 @@ export function ContactPage() {
             style={{ height: "500px" }}
           >
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3060.175837168329!2d32.85384731539754!3d39.91987879420679!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14d347d520732db1%3A0xaa6c8c0a0dd8d92!2sK%C4%B1z%C4%B1lay%2C%20Atat%C3%BCrk%20Blv.%2C%20%C3%87ankaya%2FAnkara!5e0!3m2!1str!2str!4v1234567890123!5m2!1str!2str"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3057.3663614964257!2d32.6184681!3d39.977917399999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14d331efb28fca1b%3A0x20c97c140038beac!2sAvukat%20%C4%B0layda%20MERAY%2F%20Eryaman!5e0!3m2!1str!2str!4v1773770412241!5m2!1str!2str"
               width="100%"
               height="100%"
               style={{ border: 0 }}

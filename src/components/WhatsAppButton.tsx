@@ -5,7 +5,7 @@ export function WhatsAppButton() {
     const { language } = useLanguage();
 
     const handleWhatsAppClick = () => {
-        const phoneNumber = "905321234567"; // Telefon numarasını buraya ekleyin (ülke kodu ile, + işareti olmadan)
+        const phoneNumber = "905079355963"; // 0507 935 59 63
         const message = language === 'tr'
             ? "Merhaba, bilgi almak istiyorum."
             : "Hello, I would like to get information.";

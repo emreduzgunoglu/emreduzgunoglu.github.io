@@ -53,42 +53,6 @@ export function ServicesPage() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section
-        className="py-20 px-4 sm:px-6 lg:px-8"
-        style={{
-          background: `linear-gradient(135deg, var(--law-navy) 0%, #1a3a5c 100%)`
-        }}
-      >
-        <div className="max-w-4xl mx-auto text-center">
-          <h2
-            className="mb-6"
-            style={{ color: "white" }}
-          >
-            {language === 'tr'
-              ? 'Hukuki Danışmanlık İhtiyacınız mı Var?'
-              : 'Do You Need Legal Consultancy?'}
-          </h2>
-          <p
-            className="mb-8"
-            style={{ color: "var(--law-blue)", fontSize: "1.125rem" }}
-          >
-            {language === 'tr'
-              ? 'Uzman kadromuz, sizin için en uygun çözümü bulmaya hazır. Hemen bizimle iletişime geçin.'
-              : 'Our expert team is ready to find the most suitable solution for you. Contact us now.'}
-          </p>
-          <a
-            href="/iletisim"
-            className="inline-block px-8 py-4 rounded-lg transition-all hover:shadow-2xl transform hover:-translate-y-1"
-            style={{
-              backgroundColor: "var(--law-gold)",
-              color: "white"
-            }}
-          >
-            {language === 'tr' ? 'İletişime Geçin' : 'Get in Touch'}
-          </a>
-        </div>
-      </section>
     </div>
   );
 }
