@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { LanguageProvider } from "./contexts/LanguageContext";
 import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
+import { CookieBanner } from "./components/CookieBanner";
 import { HomePage } from "./pages/HomePage";
 import { AboutPage } from "./pages/AboutPage";
 import { ServicesPage } from "./pages/ServicesPage";
@@ -10,6 +11,8 @@ import { ServiceDetailPage } from "./pages/ServiceDetailPage";
 import { ContactPage } from "./pages/ContactPage";
 import { BlogPage } from "./pages/BlogPage";
 import { BlogPostPage } from "./pages/BlogPostPage";
+import { CerezAydınlatmaMetniPage } from "./pages/CerezAydınlatmaMetniPage";
+import { MüvekkilAydınlatmaMetniPage } from "./pages/MüvekkilAydınlatmaMetniPage";
 import "./styles/globals.css";
 
 function ScrollToTop() {
@@ -41,9 +44,12 @@ export default function App() {
               <Route path="/blog" element={<BlogPage />} />
               <Route path="/blog/:id" element={<BlogPostPage />} />
               <Route path="/iletisim" element={<ContactPage />} />
+              <Route path="/cerez-aydinlatma-metni" element={<CerezAydınlatmaMetniPage />} />
+              <Route path="/muvekkil-aydinlatma-metni" element={<MüvekkilAydınlatmaMetniPage />} />
             </Routes>
           </main>
           <Footer />
+          <CookieBanner />
         </div>
       </Router>
     </LanguageProvider>

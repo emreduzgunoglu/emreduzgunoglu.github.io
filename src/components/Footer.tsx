@@ -78,23 +78,30 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Hizmetlerimiz */}
+          {/* Yasal Metinler */}
           <div>
             <h4 className="mb-4" style={{ color: "white" }}>
-              {t.services.title}
+              {language === 'tr' ? 'Yasal Metinler' : 'Legal Texts'}
             </h4>
             <ul className="space-y-2">
-              {t.services.categories.slice(0, 4).map((category) => (
-                <li key={category.id}>
-                  <Link
-                    to={`/hizmetlerimiz/${category.id}`}
-                    className="transition-colors hover:opacity-80"
-                    style={{ color: "#9ca3af", fontSize: "0.875rem" }}
-                  >
-                    {category.title}
-                  </Link>
-                </li>
-              ))}
+              <li>
+                <Link
+                  to="/cerez-aydinlatma-metni"
+                  className="transition-colors hover:opacity-80"
+                  style={{ color: "#9ca3af", fontSize: "0.875rem" }}
+                >
+                  {language === 'tr' ? 'Çerez Aydınlatma Metni' : 'Cookie Policy'}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/muvekkil-aydinlatma-metni"
+                  className="transition-colors hover:opacity-80"
+                  style={{ color: "#9ca3af", fontSize: "0.875rem" }}
+                >
+                  {language === 'tr' ? 'Müvekkil Aydınlatma Metni' : 'Client Disclosure Text'}
+                </Link>
+              </li>
             </ul>
           </div>
 

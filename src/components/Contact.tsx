@@ -134,8 +134,8 @@ export function Contact() {
               <div className="mt-8 text-center">
                 <p className="text-white text-sm opacity-75">
                   {language === 'tr'
-                    ? '📱 7/24 mesaj gönderebilirsiniz'
-                    : '📱 Send us a message anytime'}
+                    ? '📱 Mesajlarınıza Hafta İçi 09:00–18:00 mesai saatlerinde dönüş yapılacaktır.'
+                    : '📱 Replies will be provided on weekdays between 09:00–18:00.'}
                 </p>
               </div>
             </div>
