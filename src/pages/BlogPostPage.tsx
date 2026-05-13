@@ -86,7 +86,7 @@ export function BlogPostPage() {
 
             {/* Content Section */}
             <section className="py-12 px-4 sm:px-6 lg:px-8">
-                <div className="max-w-4xl mx-auto">
+                <div className="max-w-7xl mx-auto">
                     {/* Back Button */}
                     <button
                         onClick={() => navigate('/blog')}
