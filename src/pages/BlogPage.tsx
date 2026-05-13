@@ -58,7 +58,7 @@ export function BlogPage() {
                             {posts.map((blog) => (
                                 <div
                                     key={blog._id}
-                                    onClick={() => navigate(`/blog/${blog.slug.current}`)}
+                                    onClick={() => blog.slug?.current && navigate(`/blog/${blog.slug.current}`)}
                                     className="rounded-xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 cursor-pointer flex flex-col bg-white"
                                     style={{
                                         border: "1px solid #e5e7eb"
