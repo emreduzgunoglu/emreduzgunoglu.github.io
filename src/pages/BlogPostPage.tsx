@@ -101,44 +101,46 @@ export function BlogPostPage() {
             <section className="py-12 px-4 sm:px-6 lg:px-8">
                 <div className="max-w-7xl mx-auto">
                     <div className="bg-white p-6 md:p-12 rounded-xl shadow-xl border border-gray-100">
-                        {/* Back Button */}
-                        <button
-                            onClick={() => navigate('/blog')}
-                            className="mb-8 flex items-center space-x-2 text-sm font-semibold transition-colors hover:opacity-70"
-                            style={{ color: "var(--law-navy)" }}
-                        >
-                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-                            </svg>
-                            <span>{t.blog.backToBlog}</span>
-                        </button>
+                        <div className="max-w-4xl mx-auto">
+                            {/* Back Button */}
+                            <button
+                                onClick={() => navigate('/blog')}
+                                className="mb-8 flex items-center space-x-2 text-sm font-semibold transition-colors hover:opacity-70"
+                                style={{ color: "var(--law-navy)" }}
+                            >
+                                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                                </svg>
+                                <span className="whitespace-nowrap">{t.blog.backToBlog}</span>
+                            </button>
 
-                        {loading ? (
-                            <div className="flex flex-col space-y-4 animate-pulse">
-                                <div className="w-full max-w-4xl mx-auto h-64 md:h-[28rem] bg-gray-200 rounded-xl mb-10"></div>
-                                <div className="h-4 bg-gray-200 rounded w-full"></div>
-                                <div className="h-4 bg-gray-200 rounded w-5/6"></div>
-                                <div className="h-4 bg-gray-200 rounded w-4/6"></div>
-                            </div>
-                        ) : blog ? (
-                            <>
-                                {/* Image Container */}
-                                {blog.mainImage?.asset?.url && (
-                                    <div className="w-full max-w-4xl mx-auto h-64 md:h-[28rem] mb-10 overflow-hidden rounded-xl shadow-lg relative group bg-gray-100 flex items-center justify-center">
-                                        <img
-                                            src={blog.mainImage.asset.url}
-                                            alt={blog.title}
-                                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                                        />
-                                    </div>
-                                )}
-
-                                {/* Article Text */}
-                                <div className="space-y-6 md:space-y-8 mt-8">
-                                    {blog.body && <PortableText value={blog.body} components={ptComponents} />}
+                            {loading ? (
+                                <div className="flex flex-col space-y-4 animate-pulse">
+                                    <div className="w-full h-64 md:h-[28rem] bg-gray-200 rounded-xl mb-10"></div>
+                                    <div className="h-4 bg-gray-200 rounded w-full"></div>
+                                    <div className="h-4 bg-gray-200 rounded w-5/6"></div>
+                                    <div className="h-4 bg-gray-200 rounded w-4/6"></div>
                                 </div>
-                            </>
-                        ) : null}
+                            ) : blog ? (
+                                <>
+                                    {/* Image Container */}
+                                    {blog.mainImage?.asset?.url && (
+                                        <div className="w-full h-64 md:h-[28rem] mb-10 overflow-hidden rounded-xl shadow-lg relative group bg-gray-100 flex items-center justify-center">
+                                            <img
+                                                src={blog.mainImage.asset.url}
+                                                alt={blog.title}
+                                                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                                            />
+                                        </div>
+                                    )}
+
+                                    {/* Article Text */}
+                                    <div className="space-y-6 md:space-y-8 mt-8">
+                                        {blog.body && <PortableText value={blog.body} components={ptComponents} />}
+                                    </div>
+                                </>
+                            ) : null}
+                        </div>
                     </div>
                 </div>
             </section>
