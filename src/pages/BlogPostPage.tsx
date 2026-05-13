@@ -10,33 +10,33 @@ const ptComponents = {
         image: ({ value }: any) => {
             if (!value?.asset?.url) return null;
             return (
-                <div className="my-8 w-full flex justify-center">
-                    <img src={value.asset.url} alt="Blog Görseli" className="rounded-lg shadow-md max-w-full h-auto" />
+                <div style={{ margin: '2rem 0', width: '100%', display: 'flex', justifyContent: 'center' }}>
+                    <img src={value.asset.url} alt="Blog Görseli" style={{ borderRadius: '0.5rem', boxShadow: '0 4px 6px rgba(0,0,0,0.1)', maxWidth: '100%', height: 'auto' }} />
                 </div>
             );
         }
     },
     block: {
-        normal: ({ children }: any) => <p className="leading-relaxed text-justify text-lg text-gray-800 font-normal mb-6">{children}</p>,
-        h1: ({ children }: any) => <h1 className="font-black mt-10 mb-4 text-3xl tracking-wide text-black block">{children}</h1>,
-        h2: ({ children }: any) => <h2 className="font-black mt-10 mb-4 text-2xl tracking-wide text-black block">{children}</h2>,
-        h3: ({ children }: any) => <h3 className="font-black mt-8 mb-4 text-xl tracking-wide text-black block">{children}</h3>,
-        h4: ({ children }: any) => <h4 className="font-bold mt-8 mb-3 text-lg tracking-wide text-black block">{children}</h4>,
-        h5: ({ children }: any) => <h5 className="font-bold mt-6 mb-3 text-base tracking-wide text-black block">{children}</h5>,
-        h6: ({ children }: any) => <h6 className="font-bold mt-6 mb-3 text-sm tracking-wide text-black block">{children}</h6>,
-        blockquote: ({ children }: any) => <blockquote className="border-l-4 pl-4 italic text-gray-600 mb-6 py-2" style={{ borderColor: 'var(--law-gold)' }}>{children}</blockquote>,
+        normal: ({ children }: any) => <p style={{ lineHeight: '1.8', textAlign: 'justify', fontSize: '1.1rem', color: '#1f2937', fontWeight: '400', marginBottom: '1.5rem' }}>{children}</p>,
+        h1: ({ children }: any) => <h1 style={{ fontWeight: '900', marginTop: '2.5rem', marginBottom: '1rem', fontSize: '2rem', letterSpacing: '0.025em', color: '#000', display: 'block' }}>{children}</h1>,
+        h2: ({ children }: any) => <h2 style={{ fontWeight: '900', marginTop: '2.5rem', marginBottom: '1rem', fontSize: '1.625rem', letterSpacing: '0.025em', color: '#000', display: 'block' }}>{children}</h2>,
+        h3: ({ children }: any) => <h3 style={{ fontWeight: '900', marginTop: '2rem', marginBottom: '1rem', fontSize: '1.375rem', letterSpacing: '0.025em', color: '#000', display: 'block' }}>{children}</h3>,
+        h4: ({ children }: any) => <h4 style={{ fontWeight: '700', marginTop: '2rem', marginBottom: '0.75rem', fontSize: '1.2rem', letterSpacing: '0.025em', color: '#000', display: 'block' }}>{children}</h4>,
+        h5: ({ children }: any) => <h5 style={{ fontWeight: '700', marginTop: '1.5rem', marginBottom: '0.75rem', fontSize: '1.05rem', letterSpacing: '0.025em', color: '#000', display: 'block' }}>{children}</h5>,
+        h6: ({ children }: any) => <h6 style={{ fontWeight: '700', marginTop: '1.5rem', marginBottom: '0.75rem', fontSize: '0.95rem', letterSpacing: '0.025em', color: '#000', display: 'block' }}>{children}</h6>,
+        blockquote: ({ children }: any) => <blockquote style={{ borderLeft: '4px solid var(--law-gold)', paddingLeft: '1rem', fontStyle: 'italic', color: '#4b5563', marginBottom: '1.5rem', paddingTop: '0.5rem', paddingBottom: '0.5rem' }}>{children}</blockquote>,
     },
     list: {
-        bullet: ({ children }: any) => <ul className="list-disc pl-6 mb-6 space-y-2">{children}</ul>,
-        number: ({ children }: any) => <ol className="list-decimal pl-6 mb-6 space-y-2">{children}</ol>,
+        bullet: ({ children }: any) => <ul style={{ listStyleType: 'disc', paddingLeft: '1.5rem', marginBottom: '1.5rem' }}>{children}</ul>,
+        number: ({ children }: any) => <ol style={{ listStyleType: 'decimal', paddingLeft: '1.5rem', marginBottom: '1.5rem' }}>{children}</ol>,
     },
     listItem: {
-        bullet: ({ children }: any) => <li className="text-lg text-gray-800">{children}</li>,
-        number: ({ children }: any) => <li className="text-lg text-gray-800">{children}</li>,
+        bullet: ({ children }: any) => <li style={{ fontSize: '1.1rem', color: '#1f2937', marginBottom: '0.5rem' }}>{children}</li>,
+        number: ({ children }: any) => <li style={{ fontSize: '1.1rem', color: '#1f2937', marginBottom: '0.5rem' }}>{children}</li>,
     },
     marks: {
-        strong: ({ children }: any) => <strong className="font-extrabold text-black">{children}</strong>,
-        em: ({ children }: any) => <em className="italic">{children}</em>,
+        strong: ({ children }: any) => <strong style={{ fontWeight: '800', color: '#000' }}>{children}</strong>,
+        em: ({ children }: any) => <em style={{ fontStyle: 'italic' }}>{children}</em>,
     }
 };
 
