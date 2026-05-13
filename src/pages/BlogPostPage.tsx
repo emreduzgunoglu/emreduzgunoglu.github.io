@@ -6,11 +6,24 @@ import { PortableText } from '@portabletext/react';
 
 // Özel Sanity Metin Tasarımı (Eski blog tasarımıyla uyumlu olması için)
 const ptComponents = {
+    types: {
+        image: ({ value }: any) => {
+            if (!value?.asset?.url) return null;
+            return (
+                <div className="my-8 w-full flex justify-center">
+                    <img src={value.asset.url} alt="Blog Görseli" className="rounded-lg shadow-md max-w-full h-auto" />
+                </div>
+            );
+        }
+    },
     block: {
         normal: ({ children }: any) => <p className="leading-relaxed text-justify text-lg text-gray-800 font-normal mb-6">{children}</p>,
-        h1: ({ children }: any) => <h1 className="font-black mt-10 mb-4 text-3xl tracking-wide text-black">{children}</h1>,
-        h2: ({ children }: any) => <h2 className="font-black mt-10 mb-4 text-2xl tracking-wide text-black">{children}</h2>,
-        h3: ({ children }: any) => <h3 className="font-black mt-8 mb-4 text-xl tracking-wide text-black">{children}</h3>,
+        h1: ({ children }: any) => <h1 className="font-black mt-10 mb-4 text-3xl tracking-wide text-black block">{children}</h1>,
+        h2: ({ children }: any) => <h2 className="font-black mt-10 mb-4 text-2xl tracking-wide text-black block">{children}</h2>,
+        h3: ({ children }: any) => <h3 className="font-black mt-8 mb-4 text-xl tracking-wide text-black block">{children}</h3>,
+        h4: ({ children }: any) => <h4 className="font-bold mt-8 mb-3 text-lg tracking-wide text-black block">{children}</h4>,
+        h5: ({ children }: any) => <h5 className="font-bold mt-6 mb-3 text-base tracking-wide text-black block">{children}</h5>,
+        h6: ({ children }: any) => <h6 className="font-bold mt-6 mb-3 text-sm tracking-wide text-black block">{children}</h6>,
         blockquote: ({ children }: any) => <blockquote className="border-l-4 pl-4 italic text-gray-600 mb-6 py-2" style={{ borderColor: 'var(--law-gold)' }}>{children}</blockquote>,
     },
     list: {
@@ -102,7 +115,7 @@ export function BlogPostPage() {
                     <div className="bg-white p-6 md:p-12 rounded-xl shadow-xl border border-gray-100 mt-6 lg:mt-8">
                         {loading ? (
                             <div className="flex flex-col space-y-4 animate-pulse">
-                                <div className="w-full h-64 md:h-[28rem] bg-gray-200 rounded-xl mb-10"></div>
+                                <div className="w-full max-w-4xl mx-auto h-64 md:h-[28rem] bg-gray-200 rounded-xl mb-10"></div>
                                 <div className="h-4 bg-gray-200 rounded w-full"></div>
                                 <div className="h-4 bg-gray-200 rounded w-5/6"></div>
                                 <div className="h-4 bg-gray-200 rounded w-4/6"></div>
@@ -111,7 +124,7 @@ export function BlogPostPage() {
                             <>
                                 {/* Image Container */}
                                 {blog.mainImage?.asset?.url && (
-                                    <div className="w-full h-64 md:h-[28rem] mb-10 overflow-hidden rounded-xl shadow-lg relative group bg-gray-100">
+                                    <div className="w-full max-w-4xl mx-auto h-64 md:h-[28rem] mb-10 overflow-hidden rounded-xl shadow-lg relative group bg-gray-100 flex items-center justify-center">
                                         <img
                                             src={blog.mainImage.asset.url}
                                             alt={blog.title}
