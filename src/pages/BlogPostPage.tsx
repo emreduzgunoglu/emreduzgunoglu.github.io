@@ -100,19 +100,19 @@ export function BlogPostPage() {
             {/* Content Section */}
             <section className="py-12 px-4 sm:px-6 lg:px-8">
                 <div className="max-w-7xl mx-auto">
-                    {/* Back Button */}
-                    <button
-                        onClick={() => navigate('/blog')}
-                        className="mb-8 flex items-center space-x-2 text-sm font-semibold transition-colors hover:opacity-70"
-                        style={{ color: "var(--law-navy)" }}
-                    >
-                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-                        </svg>
-                        <span>{t.blog.backToBlog}</span>
-                    </button>
+                    <div className="bg-white p-6 md:p-12 rounded-xl shadow-xl border border-gray-100">
+                        {/* Back Button */}
+                        <button
+                            onClick={() => navigate('/blog')}
+                            className="mb-8 flex items-center space-x-2 text-sm font-semibold transition-colors hover:opacity-70"
+                            style={{ color: "var(--law-navy)" }}
+                        >
+                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                            </svg>
+                            <span>{t.blog.backToBlog}</span>
+                        </button>
 
-                    <div className="bg-white p-6 md:p-12 rounded-xl shadow-xl border border-gray-100 mt-6 lg:mt-8">
                         {loading ? (
                             <div className="flex flex-col space-y-4 animate-pulse">
                                 <div className="w-full max-w-4xl mx-auto h-64 md:h-[28rem] bg-gray-200 rounded-xl mb-10"></div>
