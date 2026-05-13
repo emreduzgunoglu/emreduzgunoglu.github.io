@@ -102,7 +102,7 @@ export function BlogPostPage() {
                     <div className="bg-white p-6 md:p-12 rounded-xl shadow-xl border border-gray-100 mt-6 lg:mt-8">
                         {loading ? (
                             <div className="flex flex-col space-y-4 animate-pulse">
-                                <div className="h-64 bg-gray-200 rounded-xl w-full"></div>
+                                <div className="h-64 md:h-96 bg-gray-200 rounded-xl w-full"></div>
                                 <div className="h-4 bg-gray-200 rounded w-full"></div>
                                 <div className="h-4 bg-gray-200 rounded w-5/6"></div>
                                 <div className="h-4 bg-gray-200 rounded w-4/6"></div>
@@ -112,7 +112,7 @@ export function BlogPostPage() {
                                 {/* Image Container */}
                                 {blog.mainImage?.asset?.url && (
                                 <div className="relative mb-8">
-                                    <div className="w-full h-64 md:h-[32rem] overflow-hidden rounded-xl shadow-lg relative group bg-gray-100">
+                                    <div className="w-full h-64 md:h-96 overflow-hidden rounded-xl shadow-lg relative group bg-gray-100">
                                         <img
                                             src={blog.mainImage.asset.url}
                                             alt={blog.title}
