@@ -56,16 +56,7 @@ export function BlogPostPage() {
         return <Navigate to="/blog" replace />;
     }
 
-    if (loading) {
-        return (
-            <div className="pt-32 min-h-screen text-center text-gray-500 text-lg font-medium" style={{ backgroundColor: "var(--law-bg)" }}>
-                Yükleniyor...
-            </div>
-        );
-    }
-
-    if (!blog) return null;
-
+    // Yükleniyor durumunda da ana iskeleti göstererek "zıplama" (flash) etkisini engelliyoruz
     return (
         <div className="pt-16 min-h-screen" style={{ backgroundColor: "var(--law-bg)" }}>
             {/* Hero Section */}
@@ -77,13 +68,16 @@ export function BlogPostPage() {
             >
                 <div className="max-w-4xl mx-auto text-center relative z-10">
                     <h1
-                        className="mb-6 text-xl sm:text-2xl md:text-4xl leading-snug px-2"
-                        style={{ color: "white", fontWeight: "700" }}
+                        className="mb-6"
+                        style={{ color: "white", fontSize: "2.5rem", fontWeight: "700" }}
                     >
-                        {blog.title}
+                        {blog ? blog.title : "Yükleniyor..."}
                     </h1>
-                    {blog.publishedAt && (
-                      <p className="text-gray-300 mt-4">
+                    {blog?.publishedAt && (
+                      <p
+                          className="max-w-2xl mx-auto"
+                          style={{ color: "var(--law-blue)", fontSize: "1.25rem" }}
+                      >
                           {new Date(blog.publishedAt).toLocaleDateString(language === 'tr' ? 'tr-TR' : 'en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
                       </p>
                     )}
@@ -105,24 +99,35 @@ export function BlogPostPage() {
                         <span>{t.blog.backToBlog}</span>
                     </button>
 
-                    <div className="bg-white p-6 md:p-12 rounded-xl shadow-xl border border-gray-100 mt-6 lg:mt-8 ml-2 lg:ml-4">
-                        {/* Image Container */}
-                        {blog.mainImage?.asset?.url && (
-                          <div className="relative mb-8">
-                              <div className="w-full h-64 md:h-[32rem] overflow-hidden rounded-xl shadow-lg relative group bg-gray-100">
-                                  <img
-                                      src={blog.mainImage.asset.url}
-                                      alt={blog.title}
-                                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                                  />
-                              </div>
-                          </div>
-                        )}
+                    <div className="bg-white p-6 md:p-12 rounded-xl shadow-xl border border-gray-100 mt-6 lg:mt-8">
+                        {loading ? (
+                            <div className="flex flex-col space-y-4 animate-pulse">
+                                <div className="h-64 bg-gray-200 rounded-xl w-full"></div>
+                                <div className="h-4 bg-gray-200 rounded w-full"></div>
+                                <div className="h-4 bg-gray-200 rounded w-5/6"></div>
+                                <div className="h-4 bg-gray-200 rounded w-4/6"></div>
+                            </div>
+                        ) : blog ? (
+                            <>
+                                {/* Image Container */}
+                                {blog.mainImage?.asset?.url && (
+                                <div className="relative mb-8">
+                                    <div className="w-full h-64 md:h-[32rem] overflow-hidden rounded-xl shadow-lg relative group bg-gray-100">
+                                        <img
+                                            src={blog.mainImage.asset.url}
+                                            alt={blog.title}
+                                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                                        />
+                                    </div>
+                                </div>
+                                )}
 
-                        {/* Article Text */}
-                        <div className="space-y-6 md:space-y-8 mt-8">
-                            {blog.body && <PortableText value={blog.body} components={ptComponents} />}
-                        </div>
+                                {/* Article Text */}
+                                <div className="space-y-6 md:space-y-8 mt-8">
+                                    {blog.body && <PortableText value={blog.body} components={ptComponents} />}
+                                </div>
+                            </>
+                        ) : null}
                     </div>
                 </div>
             </section>
